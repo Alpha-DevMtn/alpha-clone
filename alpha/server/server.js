@@ -20,7 +20,7 @@ app.get('/api/products/men', productCtrl.getMensProducts);
 app.get('/api/products/women', productCtrl.getWomensProducts);
 
 
-var port = 3000;
+var port = 4000;
 app.listen(port, function() {
     console.log('listening on port ', port);
 });
