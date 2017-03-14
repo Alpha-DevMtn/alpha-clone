@@ -1,0 +1,9 @@
+-- CREATE TABLE IF NOT EXISTS products(
+--     product_id SERIAL PRIMARY KEY,
+--     prod_name VARCHAR(50),
+--     price FLOAT,
+--     imageurl VARCHAR(1000),
+--     gender VARCHAR(10),
+--     color VARCHAR(15),
+--     sizes VARCHAR(50)
+-- )

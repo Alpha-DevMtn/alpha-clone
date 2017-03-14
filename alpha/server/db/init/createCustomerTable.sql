@@ -1,0 +1,4 @@
+-- CREATE TABLE IF NOT EXISTS customers(
+--     customer_id SERIAL PRIMARY KEY,
+--     email VARCHAR(50) 
+-- )
