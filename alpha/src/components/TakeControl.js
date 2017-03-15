@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-import '../styles/App.css';
-import header from '../images/image1.JPG';
+import '../styles/TakeControl.css';
 
 class TakeControl extends Component {
   render() {
     return (
-      <div>
-        <p className="App-intro">
+      <div className="wrapper">
+        <div className="control">
           TAKE CONTROL
-        </p>
+        </div>
+        <div className="pointless">
+        </div>
+        <div className="shop">
+          SHOP NOW
+        </div>
       </div>
     );
   }
