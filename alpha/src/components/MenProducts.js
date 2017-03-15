@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Product from './Product';
+import { getMensProducts } from './../services/productsService';
 
 export function getClothes() {
   return axios.get('http://practiceapi.devmounta.in/products')
@@ -22,12 +23,12 @@ class MenProducts extends Component {
   const maleProducts = this.state.maleProducts.map((item, i) => {
 console.log('item: ', item);
   return (
-    // <div key={i}>
-    //   <h1>{item.title}</h1>
-    //
-    // </div>
-    // <Link to={"clothes/" + item.name}>
-    <Product {...this.props} i={i} key={i} item={item} />
+    <div key={i}>
+      {/*<h1>{item.prod_name}</h1>*/}
+      <Product {...this.props} i={i} key={i} item={item} />
+    </div>
+    // <Link to={"clothes/" + item.prod_name}>
+    
     // </Link>
     )
   })
@@ -44,7 +45,7 @@ console.log('item: ', item);
 
 
   componentDidMount() {
-    getClothes().then(clothes => {
+    getMensProducts().then(clothes => {
       this.setState({
         maleProducts: clothes
       })
