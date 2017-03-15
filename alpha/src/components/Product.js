@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { sendToStore } from '../redux/red1';
+import { connect } from 'react-redux';
+import { sendToStore } from '../redux/red1';
 
 const bord = {
    borderStyle: 'solid',
@@ -21,28 +21,40 @@ class Product extends Component {
   constructor(props){
     super(props);
 
-    // this.state = {
-    //   inputValue: ''
-    // }
+    this.state = {
+      id: ''
+    }
 
-    // this.handleClick = this.handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  // handleClick () {
-  //   this.props.sendToStore(this.state.inputValue);
-  //   console.log('this.props: ', this.props);
-  // }
+  handleClick () {
+    this.props.sendToStore(this.state.id);
+    console.log('this.props: ', this.props);
+  }
 
   render() {
     return (
       <div style={bord}>
       <p>each </p>
-
+<h1>Input Value: {this.props.newInput}</h1>
       <h2>{this.props.item.title}</h2>
       <img src={this.props.item.image} alt="" style={imgStyle} />
+      <button onClick={this.handleClick}>Add</button>
       </div>
     );
   }
 }
 
-export default Product;
+function mapStateToProps(state) {
+  console.log('state: ', state);
+  return {
+    newInput: state.red1.old
+  }
+}
+
+const mapDispatchToActionProviders = {
+  sendToStore: sendToStore
+}
+
+export default connect(mapStateToProps, mapDispatchToActionProviders)(Product);
