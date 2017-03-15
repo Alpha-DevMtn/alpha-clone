@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, hashHistory} from 'react-router';
 
-import App from './components/App';
+import Home from './components/Home';
 import './styles/index.css';
-import Nav from './components/Nav';
+import App from './components/App';
 import MenProducts from './components/MenProducts';
 import WomenProducts from './components/WomenProducts';
 import CartSlide from './components/CartSlide';
@@ -12,8 +12,8 @@ import CartSlide from './components/CartSlide';
 ReactDOM.render(
 
   <Router history={hashHistory}>
-    <Route component={Nav}>
-      <Route path="/" component={App} />
+    <Route component={App}>
+      <Route path="/" component={Home} />
       <Route path="/mens" component={MenProducts} />
       <Route path="/womens" component={WomenProducts} />
       <Route path="/cart" component={CartSlide} />

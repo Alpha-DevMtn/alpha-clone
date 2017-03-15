@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/App.css';
-import header from '../images/image1.JPG';
+import '../styles/Home.css';
 
 class Popular extends Component {
   render() {
