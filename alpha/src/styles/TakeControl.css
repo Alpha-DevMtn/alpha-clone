@@ -1,0 +1,43 @@
+.wrapper {
+  font-family: 'DINNextLTPro-UltraLight', sans-serif;
+  background-image: url("../images/image1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: visible;
+  height: calc(100vh + 38px);
+  margin-top: -38px;
+  font-weight: 100;
+}
+.control {
+  position: absolute;
+  left: 50%;
+  top: 43%;
+  transform: translate(-50%, -50%);
+  font-size: 2.4em;
+  font-weight: lighter;
+  color: white;
+  text-align: center;
+  height: auto;
+  text-decoration: none;
+  width: 400px;
+}
+.pointless {
+  position: absolute;
+  left: 50%;
+  top: 49%;
+  transform: translate(-50%, -50%);
+  border-bottom: 1px solid white;
+  width: 400px;
+}
+.shop {
+  font-weight: lighter;
+  position: absolute;
+  left: 50%;
+  bottom: 60.5%;
+  transform: translate(-50%, 50%);
+  width: 400px;
+  color: white;
+  text-align: center;
+  height: 30px;
+}
