@@ -21,17 +21,8 @@ class Product extends Component {
   constructor(props){
     super(props);
 
-    // this.state = {
-    //   inputValue: ''
-    // }
-
-    // this.handleClick = this.handleClick.bind(this);
   }
 
-  // handleClick () {
-  //   this.props.sendToStore(this.state.inputValue);
-  //   console.log('this.props: ', this.props);
-  // }
 
   render() {
     return (
