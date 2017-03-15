@@ -21,6 +21,7 @@ class Product extends Component {
   constructor(props){
     super(props);
 
+<<<<<<< HEAD
     this.state = {
       id: ''
     }
@@ -32,15 +33,26 @@ class Product extends Component {
     this.props.sendToStore(this.state.id);
     console.log('this.props: ', this.props);
   }
+=======
+  }
+
+>>>>>>> master
 
   render() {
     return (
       <div style={bord}>
+<<<<<<< HEAD
       <p>each </p>
 <h1>Input Value: {this.props.newInput}</h1>
       <h2>{this.props.item.title}</h2>
       <img src={this.props.item.image} alt="" style={imgStyle} />
       <button onClick={this.handleClick}>Add</button>
+=======
+      <img src={this.props.item.imageurl} alt="" style={imgStyle} />
+      <h3>{this.props.item.prod_name} - {this.props.item.color}</h3>
+      <h3>{this.props.item.price}</h3>
+      
+>>>>>>> master
       </div>
     );
   }
