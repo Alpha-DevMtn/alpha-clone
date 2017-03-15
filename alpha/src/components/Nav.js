@@ -43,8 +43,6 @@ class Nav extends Component {
       </div>
       </div>
 
-        {this.props.children}
-
       </div>
     )
   }

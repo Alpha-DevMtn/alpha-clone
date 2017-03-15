@@ -1,23 +1,18 @@
 import React, { Component } from 'react';
-import '../styles/App.css';
-import TakeControl from './TakeControl';
-import Shipping from './Shipping';
-import Popular from './Popular';
-import Social from './Social';
-import Mwa from './Mwa';
+import { Link } from 'react-router';
+import Nav from './Nav';
+// import '../styles/App.css';
 
 class App extends Component {
-  render() {
+  render(){
     return (
-      <div className="App">
-        <TakeControl className="control" />
-        <Shipping />
-        <Mwa />
-        <Popular />
-        <Social />
+    <div>
+      <Nav />
+        {this.props.children}
+
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
