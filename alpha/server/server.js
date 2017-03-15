@@ -6,7 +6,6 @@ var config = require('./config');
 
 var app = module.exports = express();
 
-app.use(express.static(__dirname + './../public'));
 app.use(bodyParser.json());
 
 var db = require('./massive');
@@ -16,8 +15,8 @@ var productCtrl = require('./controllers/productCtrl');
 
 app.get('/api/products', productCtrl.getProducts);
 app.get('/api/products/:product_id', productCtrl.getOneProduct);
-app.get('/api/products/men', productCtrl.getMensProducts);
-app.get('/api/products/women', productCtrl.getWomensProducts);
+app.get('/api/products/gender/men', productCtrl.getMensProducts);
+app.get('/api/products/gender/women', productCtrl.getWomensProducts);
 
 
 var port = 4000;

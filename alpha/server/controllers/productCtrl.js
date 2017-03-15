@@ -19,6 +19,8 @@ module.exports = {
                 console.error(err)
                 res.send(err)
             } else {
+                results[0].sizes = results[0].sizes.split(',');
+                results[0].info = results[0].info.split('+');
                 res.send(results[0])
             }
         })
@@ -34,7 +36,7 @@ module.exports = {
         })
     },
     getWomensProducts: function(req, res) {
-        db.product.read_products_wommen([], function(err, results) {
+        db.product.read_products_women([], function(err, results) {
             if (err) {
                 console.error(err) 
                 res.send(err)
