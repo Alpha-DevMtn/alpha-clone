@@ -1,0 +1,48 @@
+import React, { Component } from 'react';
+// import { connect } from 'react-redux';
+// import { sendToStore } from '../redux/red1';
+
+const bord = {
+   borderStyle: 'solid',
+   width: '210px',
+   height: '310px',
+   margin: '10px',
+   float: 'left'
+}
+
+const imgStyle = {
+  width: '200px'
+}
+
+
+
+class Product extends Component {
+
+  constructor(props){
+    super(props);
+
+    // this.state = {
+    //   inputValue: ''
+    // }
+
+    // this.handleClick = this.handleClick.bind(this);
+  }
+
+  // handleClick () {
+  //   this.props.sendToStore(this.state.inputValue);
+  //   console.log('this.props: ', this.props);
+  // }
+
+  render() {
+    return (
+      <div style={bord}>
+      <p>each </p>
+
+      <h2>{this.props.item.title}</h2>
+      <img src={this.props.item.image} alt="" style={imgStyle} />
+      </div>
+    );
+  }
+}
+
+export default Product;
