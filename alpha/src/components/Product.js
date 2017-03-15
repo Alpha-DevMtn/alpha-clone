@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
+// import { connect } from 'react-redux';
+// import { sendToStore } from '../redux/red1';
 
 const bord = {
    borderStyle: 'solid',
@@ -12,12 +14,35 @@ const imgStyle = {
   width: '200px'
 }
 
-export default function Product(props) {
-  console.log('props.item: ', props.item);
-  return (
-    <div style={bord}>
-      <h2>{props.item.title}</h2>
-      <img src={props.item.image} alt="" style={imgStyle} />
-    </div>
-  )
+
+
+class Product extends Component {
+
+  constructor(props){
+    super(props);
+
+    // this.state = {
+    //   inputValue: ''
+    // }
+
+    // this.handleClick = this.handleClick.bind(this);
+  }
+
+  // handleClick () {
+  //   this.props.sendToStore(this.state.inputValue);
+  //   console.log('this.props: ', this.props);
+  // }
+
+  render() {
+    return (
+      <div style={bord}>
+      <p>each </p>
+
+      <h2>{this.props.item.title}</h2>
+      <img src={this.props.item.image} alt="" style={imgStyle} />
+      </div>
+    );
+  }
 }
+
+export default Product;
