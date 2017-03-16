@@ -15,7 +15,7 @@
   position: relative;
 }
 
-.left {
+.nav-left {
   /*background-color: red;*/
   position: absolute;
   top: 0;
@@ -25,7 +25,7 @@
   /*float: left;*/
 }
 
-.center {
+.nav-center {
   /*background-color: green;*/
   position: absolute;
   top: 50%;
@@ -34,7 +34,7 @@
 
 }
 
-.right {
+.nav-right {
   /*background-color: pink;*/
   position: absolute;
   top: 0;
@@ -43,33 +43,20 @@
   /*float: left;*/
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    /*background-color: #fff;*/
-}
-
-li {
-    float: left;
-    padding: 0px 10px;
-}
-
-.main-link {
+.nav-main-link {
     display: inline-block;
     color: darkgrey;
     text-align: center;
-    /*padding: 14px 16px;*/
+    padding: 0px 16px;
     text-decoration: none;
 }
 
 
-.category {
+.nav-category {
     display: inline-block;
 }
 
-.drop {
+.nav-drop {
     display: none;
     position: absolute;
     background-color: #fff;
@@ -78,16 +65,18 @@ li {
 }
 
 
-.drop p {
-    color: black;
+.nav-drop p {
+    /*color: black;*/
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     text-align: left;
 }
 
-.drop p:hover {background-color: #fff}
+.nav-drop p:hover {
+  background-color: #fff
+}
 
-.category:hover .drop {
+.nav-category:hover .nav-drop {
     display: block;
 }

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router';
 import Product from './Product';
 import { getMensProducts } from './../services/productsService';
-import ProductPage from './ProductPage';
+// import ProductPage from './ProductPage';
 
 export function getClothes() {
   return axios.get('http://practiceapi.devmounta.in/products')
