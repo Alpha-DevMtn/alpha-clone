@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Product from './Product';
 import { getMensProducts } from './../services/productsService';
+<<<<<<< HEAD
 import './../styles/MenProducts.css';
 import ProductPage from './ProductPage';
+=======
+// import ProductPage from './ProductPage';
+>>>>>>> master
 
 
 class MenProducts extends Component {
