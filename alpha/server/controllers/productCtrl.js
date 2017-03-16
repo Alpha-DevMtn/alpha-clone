@@ -44,5 +44,17 @@ module.exports = {
                 res.send(results)
             }
         })
+    },
+    getCartItems: function(req, res) {
+        console.log('req.body', req.body.data, typeof req.body.data)
+        db.products.find({'product_id': JSON.parse(req.body.data)},
+        function(err, results) {
+            if (err) {
+                console.error(err)
+                res.send(err)
+            } else {
+                res.send(results)
+            }
+        })
     }
 }
