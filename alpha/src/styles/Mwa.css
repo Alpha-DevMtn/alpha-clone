@@ -1,0 +1,46 @@
+.mwaWrapper {
+  display: inline-block;
+  height: 450px;
+  width: 100%;
+}
+.men {
+  background-image: url(../images/menlink.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  float: left;
+  max-height: 450px;
+  height: 100%;
+  width: 33.33%;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+.men:hover {
+  opacity: 0.25;
+}
+
+
+
+
+.women {
+  background-image: url(../images/womenlink.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  float: left;
+  max-height: 450px;
+  height: 100%;
+  width: 33.33%;
+  opacity: 1;
+}
+.accessories {
+  background-image: url(../images/accesslink.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  float: left;
+  max-height: 450px;
+  height: 100%;
+  width: 33.33%;
+  opacity: 1;
+}

@@ -1,5 +1,5 @@
 .wrapper {
-  font-family: 'DINNextLTPro-UltraLight', sans-serif;
+  font-family: font130145;
   background-image: url("../images/image1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -7,14 +7,14 @@
   overflow: visible;
   height: calc(100vh + 38px);
   margin-top: -38px;
-  font-weight: 100;
+  /*font-weight: 100;*/
 }
 .control {
   position: absolute;
   left: 50%;
-  top: 43%;
+  top: 43.5%;
   transform: translate(-50%, -50%);
-  font-size: 2.4em;
+  font-size: 2.8em;
   font-weight: lighter;
   color: white;
   text-align: center;
@@ -27,14 +27,14 @@
   left: 50%;
   top: 49%;
   transform: translate(-50%, -50%);
-  border-bottom: 1px solid white;
+  border-bottom: 2px solid white;
   width: 400px;
 }
 .shop {
   font-weight: lighter;
   position: absolute;
   left: 50%;
-  bottom: 60.5%;
+  top: 52%;
   transform: translate(-50%, 50%);
   width: 400px;
   color: white;

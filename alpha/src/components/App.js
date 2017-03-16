@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TakeControl className="control" />
+        <TakeControl />
         <Shipping />
         <Mwa />
         <Popular />

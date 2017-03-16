@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import '../styles/App.css';
+import '../styles/Popular.css';
 
 class Popular extends Component {
   render() {
     return (
-      <div>
+      <div className="wrap">
         <p className="App-intro">
           Popular
         </p>

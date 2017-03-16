@@ -6,6 +6,7 @@
   line-height: 100px;
   white-space: nowrap;
   position: fixed;
+  z-index: 1;
 
 }
 
