@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import {Router, Route, hashHistory} from 'react-router';
+import {Router, Route} from 'react-router';
 
 import Home from './components/Home';
 import './styles/index.css';
@@ -10,6 +10,7 @@ import store, { history } from './store';
 import MenProducts from './components/MenProducts';
 import WomenProducts from './components/WomenProducts';
 import CartSlide from './components/CartSlide';
+import Customer from './components/Customer';
 import ProductPage from './components/ProductPage';
 
 ReactDOM.render(
@@ -20,6 +21,7 @@ ReactDOM.render(
       <Route path="/mens" component={MenProducts} />
       <Route path="/womens" component={WomenProducts} />
       <Route path="/cart" component={CartSlide} />
+      <Route path="/customer" component={Customer} />
       <Route path="/mens/:product_id" component={ProductPage} />
     </Route>
   </Router>
