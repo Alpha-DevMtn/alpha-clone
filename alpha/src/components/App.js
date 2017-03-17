@@ -5,10 +5,10 @@ import Nav from './Nav';
 class App extends Component {
   render(){
     return (
-    <div>
-      <Nav />
-      {this.props.children}
 
+      <div>
+        <Nav />
+        {this.props.children}
       </div>
     )
   }
