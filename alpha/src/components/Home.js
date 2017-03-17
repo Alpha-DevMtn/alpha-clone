@@ -6,11 +6,12 @@ import Popular from './Popular';
 import Social from './Social';
 import Mwa from './Mwa';
 
+
 class Home extends Component {
   render() {
     return (
       <div className="Home">
-        <TakeControl className="control" />
+        <TakeControl className="tCon"/>
         <Shipping />
         <Mwa />
         <Popular />

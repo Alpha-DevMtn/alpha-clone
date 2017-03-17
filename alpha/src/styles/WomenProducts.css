@@ -1,0 +1,70 @@
+.main-women {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.womens-banner {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    background: url('./../images/womensbanner.PNG') center no-repeat;
+    background-size: cover;
+    color: white;
+}
+.women-the-filters {
+    width: 1200px;
+    height: 120px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; 
+}
+.women-selection1 {
+    height: 30px;
+    width: 200px;
+    margin-right: 20px;
+    margin-left: 5px;
+    border: solid 1px #ddd;
+    background-color: white;
+}
+.women-selection1:focus {
+    outline: none;
+}
+.women-selection2 {
+    height: 30px;
+    width: 140px;
+    margin-left: 5px;
+    border: solid 1px #ddd;
+    background-color: white;
+}
+.women-selection2:focus {
+    outline: none;
+}
+.women-main-prods {
+    width: 1200px;
+}
+
+@media (max-width: 1600px) {
+    .mens-banner {
+        height: 24vw;
+    }
+}
+
+@media (max-width: 1340px) {
+    .mens-banner {
+        height: 320px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .women-the-filters {
+        width: 90%;
+    }
+    .women-main-prods {
+        width: 90%;
+    }
+    
+}

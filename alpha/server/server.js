@@ -17,6 +17,7 @@ app.get('/api/products', productCtrl.getProducts);
 app.get('/api/products/:product_id', productCtrl.getOneProduct);
 app.get('/api/products/gender/men', productCtrl.getMensProducts);
 app.get('/api/products/gender/women', productCtrl.getWomensProducts);
+app.post('/api/cart', productCtrl.getCartItems);
 
 
 var port = 4000;

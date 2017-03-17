@@ -1,104 +1,46 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { ship } from '../redux/checkout';
-import { Link } from 'react-router';
-import { hashHistory } from "react-router";
+import React, { Component } from 'react';
+import '../styles/Shipping.css';
+import '../styles/Animations.styl';
+import world from '../images/world.png';
+import murica from '../images/murica.png';
+import worryFree from '../images/worry-free.png';
 
-import '../styles/Customer.css';
-
-	let countries = ["usa","canada","mexico"];
-
-class Shipping extends React.Component {
-	constructor( props ) {
-		super( props );
-
-		this.state = {
-			shippingMethod: "standard"
-		};
-	}
-
-
-	handleChange( type ) {
-		this.setState( { shippingMethod: type } );
-	}
-
-  ship( event ) {
-    event.preventDefault();
-    this.props.dispatch( ship( {
-        shipping: this.state.shipping
-      , saveInfo: this.state.saveInfo
-    } ) );
-    hashHistory.push( "/payment" );
-    console.log('props: ', this.props);
+class Shipping extends Component {
+  render() {
+    return (
+      <div className="threeFeatures">
+        <div className="feature3">
+          <div className="f3smaller">
+            <img className="f3img" src={world} alt="world"/>
+            <h3 className="shipH3">WORLDWIDE<br/>EXPRESS SHIPPING</h3>
+          </div>
+          <h4 className="bull">
+            &bull; Trackable Worldwide shipping at the lowest possible prices<br/>
+            &bull; 3-4 Day Express shipping now available!
+          </h4>
+        </div>
+        <div className="feature3">
+          <div className="f3smaller">
+          <img className="f3img" src={murica} alt="express shipping icon" />
+            <h3>EXPRESS US<br/>SHIPPING</h3>
+          </div>
+          <h4 className="bull">
+           &bull; Fast, Secure, and Reliable US Shipping at the lowest possible prices<br/>
+          </h4>
+        </div>
+        <div className="feature3">
+          <div className="f3smaller">
+            <img className="f3img" src={worryFree} alt="product exchanges icon" />
+            <h3>WORRY-FREE<br/>EXCHANGES</h3>
+          </div>
+          <h4 className="bull">
+            &bull; We provide complete customer satisfaction <br/>
+            &bull; Worry-Free exchanges available for any orders
+          </h4>
+        </div>
+     </div>
+    );
   }
-
-
-
-	country = countries.map((item, i) => {
-		return (
-			<option key={i} value="{item}">{item}</option>
-		)
-	});
-
-
-	render() {
-		return (
-			<div>
-			<div className="header">
-				<img src="" alt="ALPHA"/>
-			</div>
-			<div className="right">right</div>
-			<div className="left">
-				<Link className="pay-links small-text" to="/customer">Customer information <span className="pay-gray">&gt; </span></Link>
-				<Link className="pay-links small-text" to="/shipping">Shipping method <span className="pay-gray">&gt; </span></Link>
-				<Link className="pay-links small-text" to="/payment">Payment method</Link>
-				<p>Shipping: {this.state.shipping}</p>
-				<div className="plain">
-					<div className="entry input-8">
-						<p>Shipping address</p>
-						<p>{this.props.orderInfo.firstName}</p>
-					</div>
-
-					<br/><br/><br/><br/>
-					<h2>Shipping method</h2>
-					<form>
-					<div className="entry input-8">
-              <input
-  							onChange={ this.handleChange.bind( this, "standard" ) }
-  							value="Standard"
-  							type="radio"
-								name="shipping"
-
-  						/>Standard
-					</div>
-					<div className="entry input-8">
-              <input
-  							onChange={ this.handleChange.bind( this, "fedex" ) }
-  							value="FedEx"
-  							type="radio"
-								name="shipping"
-  						/>FedEx
-					</div>
-					</form>
-</div>
-				<div className = "plain">
-					<button type="radio"></button>
-					<p>Save this information for next time</p>
-
-            <button
-							onClick={ this.ship.bind( this ) }
-							type="submit"
-							className="info-button"
-						>
-					Continue to payment method
-					</button>
-					<Link to="/shipping"><p>&lt; Return to customer information</p></Link>
-					</div>
-				</div>
-			</div>
-
-		);
-	}
 }
 
-export default connect(state => ( { orderInfo: state.checkout } ) )( Shipping );
+export default Shipping;
