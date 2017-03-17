@@ -20,7 +20,9 @@ module.exports = {
                 res.send(err)
             } else {
                 results[0].sizes = results[0].sizes.split(',');
-                results[0].info = results[0].info.split('+');
+                if (results[0].info) {
+                    results[0].info = results[0].info.split('+');
+                }
                 res.send(results[0])
             }
         })

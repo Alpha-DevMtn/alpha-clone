@@ -44,4 +44,4 @@ class CartSlide extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToActionProviders)(CartSlide);
+export default CartSlide
