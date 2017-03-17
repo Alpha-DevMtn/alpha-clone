@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { login } from '../redux/checkout';
+import { ship } from '../redux/checkout';
 import { Link } from 'react-router';
 import { hashHistory } from "react-router";
 
-import '../styles/Payment.css';
+import '../styles/Customer.css';
 
 	let countries = ["usa","canada","mexico"];
 
@@ -50,9 +50,10 @@ class Payment extends React.Component {
 			</div>
 			<div className="right">right</div>
 			<div className="left">
-				 <Link to="/temp2"><p>go to 2</p></Link>
+				<Link className="pay-links small-text" to="/customer">Customer information <span className="pay-gray">&gt; </span></Link>
+				<Link className="pay-links small-text" to="/shipping">Shipping method <span className="pay-gray">&gt; </span></Link>
+				<Link className="pay-links small-text" to="/payment">Payment method</Link>
 				<h2>Payment</h2>
-				<h2>Payment address</h2>
         <p>{this.props.orderInfo.firstName}</p>
 				<div className="plain">
 					<div className="entry input-8">
@@ -76,7 +77,7 @@ class Payment extends React.Component {
   							value={ this.state.saveInfo }
   						/>
 					</div>
-</div>
+				</div>
 
 				<div className = "plain">
 					<button type="radio"></button>
@@ -88,6 +89,7 @@ class Payment extends React.Component {
 						>
 					Continue to payment method
 					</button>
+					<Link to="/shipping"><p>&lt; Return to shipping method</p></Link>
 					</div>
 				</div>
 			</div>

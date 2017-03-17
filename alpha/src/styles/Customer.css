@@ -27,9 +27,9 @@
   border: solid lightgrey thin;
   border-radius: 10px;
   /*background-color: yellow;*/
-  height:30px;
-  padding: 2.5%;
-  margin: 2.5%;
+  height:25px;
+  padding: 2%;
+  margin: 1% 1%;
   float: left;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .input-3 {
-  width: 32%;
+  width: 30%;
 }
 
 .input-2 {
@@ -50,7 +50,7 @@
 }
 
 .input-5 {
-  width: 55%;
+  width: 50%;
 }
 
 .small-text {
@@ -80,4 +80,13 @@ input {
   width: 100%;
   position: relative;
   float: left;
+}
+
+.pay-links {
+  color: lightblue;
+  text-decoration: none;
+}
+
+.pay-gray {
+  color: lightgrey;
 }

@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { login } from '../redux/checkout';
+import { ship } from '../redux/checkout';
 import { Link } from 'react-router';
 import { hashHistory } from "react-router";
 
-import '../styles/Shipping.css';
+import '../styles/Customer.css';
 
 	let countries = ["usa","canada","mexico"];
 
@@ -13,15 +13,13 @@ class Shipping extends React.Component {
 		super( props );
 
 		this.state = {
-			firstName: ""
-			, lastName: ""
-			// , countries: ["us","canada","mexico"]
+			shippingMethod: "standard"
 		};
 	}
 
 
-	handleChange( field, event ) {
-		this.setState( { [ field ]: event.target.value } );
+	handleChange( type ) {
+		this.setState( { shippingMethod: type } );
 	}
 
   ship( event ) {
@@ -30,7 +28,7 @@ class Shipping extends React.Component {
         shipping: this.state.shipping
       , saveInfo: this.state.saveInfo
     } ) );
-    hashHistory.push( "/Payment" );
+    hashHistory.push( "/payment" );
     console.log('props: ', this.props);
   }
 
@@ -51,32 +49,37 @@ class Shipping extends React.Component {
 			</div>
 			<div className="right">right</div>
 			<div className="left">
-				 <Link to="/temp2"><p>go to 2</p></Link>
-				<h2>Shipping</h2>
-				<h2>Shipping address</h2>
-        <p>{this.props.orderInfo.firstName}</p>
+				<Link className="pay-links small-text" to="/customer">Customer information <span className="pay-gray">&gt; </span></Link>
+				<Link className="pay-links small-text" to="/shipping">Shipping method <span className="pay-gray">&gt; </span></Link>
+				<Link className="pay-links small-text" to="/payment">Payment method</Link>
+				<p>Shipping: {this.state.shipping}</p>
 				<div className="plain">
 					<div className="entry input-8">
-						<p className="small-text">Email (optional)</p>
+						<p>Shipping address</p>
+						<p>{this.props.orderInfo.firstName}</p>
 					</div>
-					<div className="entry input-4">
-						<p className="small-text">First name</p>
+
+					<br/><br/><br/><br/>
+					<h2>Shipping method</h2>
+					<form>
+					<div className="entry input-8">
               <input
-  							onChange={ this.handleChange.bind( this, "shipping" ) }
-  							placeholder="Shipping Method"
-  							type="text"
-  							value={ this.state.shipping }
-  						/>
+  							onChange={ this.handleChange.bind( this, "standard" ) }
+  							value="Standard"
+  							type="radio"
+								name="shipping"
+
+  						/>Standard
 					</div>
-					<div className="entry input-4">
-						<p className="small-text">Last name</p>
+					<div className="entry input-8">
               <input
-  							onChange={ this.handleChange.bind( this, "saveInfo" ) }
-  							placeholder="Save Info"
-  							type="text"
-  							value={ this.state.saveInfo }
-  						/>
+  							onChange={ this.handleChange.bind( this, "fedex" ) }
+  							value="FedEx"
+  							type="radio"
+								name="shipping"
+  						/>FedEx
 					</div>
+					</form>
 </div>
 				<div className = "plain">
 					<button type="radio"></button>
@@ -85,9 +88,11 @@ class Shipping extends React.Component {
             <button
 							onClick={ this.ship.bind( this ) }
 							type="submit"
+							className="info-button"
 						>
 					Continue to payment method
 					</button>
+					<Link to="/shipping"><p>&lt; Return to customer information</p></Link>
 					</div>
 				</div>
 			</div>

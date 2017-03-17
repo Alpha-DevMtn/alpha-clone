@@ -6,7 +6,7 @@ import { hashHistory } from "react-router";
 
 import '../styles/Customer.css';
 
-	let countries = ["usa","canada","mexico"];
+let countries = ["usa","canada","mexico"];
 
 class Customer extends React.Component {
 	constructor( props ) {
@@ -30,7 +30,7 @@ class Customer extends React.Component {
 			  firstName: this.state.firstName
 			, lastName: this.state.lastName
 		} ) );
-		hashHistory.push( "/Shipping" );
+		hashHistory.push( "/shipping" );
 		console.log('props: ', this.props);
 		console.log('state: ', this.state);
 	}
@@ -52,8 +52,9 @@ class Customer extends React.Component {
 			</div>
 			<div className="right">right</div>
 			<div className="left">
-				 <Link to="/temp2"><p>go to 2</p></Link>
-				<h2>Customer</h2>
+				<Link className="pay-links small-text" to="/customer">Customer information <span className="pay-gray">&gt; </span></Link>
+				<Link className="pay-links small-text" to="/shipping">Shipping method <span className="pay-gray">&gt; </span></Link>
+				<Link className="pay-links small-text" to="/payment">Payment method</Link>
 				<h2>Shipping address</h2>
 				<div className="plain">
 					<div className="entry input-8">
