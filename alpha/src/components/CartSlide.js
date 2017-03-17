@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { getCartItems } from './../services/productsService';
+import './../styles/CartSlide.css';
+import xicon from './../images/x-icon.png';
 
 class CartSlide extends Component {
 
@@ -20,17 +22,41 @@ class CartSlide extends Component {
         theCart: localStorageRef
       });
     }
+
+    
   }
 
 
   render() {
+
+    let eachOne = [];
+    if (this.state.fullCart) {
+      eachOne = this.state.fullCart.map(function(each) {
+        return (
+        <div className='cs-eachprod' >
+          <div className='cs-pic'>
+            <img src={each.imageurl} alt="" className='cs-actualpic'/>
+          </div>
+          <div className='cs-info'>
+            <p>{each.prod_name} - {each.color}</p>
+            <p>{each.price}</p>
+          </div>
+        </div>
+        )
+      }) 
+    }
+
     return (
-      <div>
-        <p className="App-intro">
-          CartSlide
-          {console.log('theCart', this.state.theCart)}
-          {console.log('fullCart', this.state.fullCart)}  
-        </p>
+      <div className='cs-main'>
+        {console.log('fullCart', this.state.fullCart)} 
+        <div className='cs-exit'>
+          <img src={xicon} alt="" className='cs-realexit'/>
+        </div> 
+        {eachOne}
+        <div className='cs-buttons'>
+          <button type="" className='cs-cont'>CONTINUE</button>
+          <button type="" className='cs-check'>CHECKOUT</button>
+        </div>
       </div>
     );
   }
@@ -41,6 +67,7 @@ class CartSlide extends Component {
         fullCart: items
       })
     })
+    
   }
 }
 

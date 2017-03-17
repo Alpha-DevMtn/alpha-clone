@@ -1,0 +1,58 @@
+.main-pp {
+    position: relative;
+    top: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.upper-pp {
+    margin-top: 50px;
+    display: flex;
+    width: 100%;
+
+}
+.thepic-pp {
+    width: 60%;
+    height: 60vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.imgmain-pp {
+   height: 60%;
+   margin-top: 30px;
+}
+.info-pp {
+    width: 40%;
+    padding: 0 50px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.title-pp {
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+.size-pp {
+    font-size: 12px;
+}
+.sizes-pp {
+    height: 40px;
+    width: 400px;
+    background-color: white;
+    border: solid 1px #ddd;
+}
+.btn-pp {
+    height: 40px;
+    width: 400px;
+    background-color: #54BFD9;
+    border: none;
+    margin-top: 10px;
+    color: white;
+    font-size: 16px;
+    border-radius: 3px;
+}
+.btn-pp:focus {
+    outline: none;
+}
