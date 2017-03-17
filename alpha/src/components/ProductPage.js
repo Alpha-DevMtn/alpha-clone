@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router';
 import { getProduct } from './../services/productsService';
 
 class ProductPage extends Component {
@@ -30,9 +31,11 @@ class ProductPage extends Component {
                 <div>
                     <h1>{this.state.item.prod_name} - {this.state.item.color}</h1>
                 </div>
-                <button onClick={() =>
-                    this.addToCart(this.state.item.product_id)
-                }>Add To Cart</button>
+                <Link to={"/cart"}>
+                    <button onClick={() =>
+                        this.addToCart(this.state.item.product_id)
+                    }>Add To Cart</button>
+                </Link>
             </div>
         )
     }
