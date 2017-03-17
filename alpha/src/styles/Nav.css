@@ -4,6 +4,7 @@
   height: 60px;
   line-height: 100px;
   position: fixed;
+
   display: flex;
   justify-content: space-between;
   background-color: white;
@@ -37,6 +38,7 @@
 }
 .store-nav {
   display: none;
+>>>>>>> master
   position: absolute;
   top: 60px;
   left: 0px;
@@ -123,5 +125,3 @@
   align-items: center;
   padding-right: 40px;
 }
-
-

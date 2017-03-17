@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import '../styles/Home.css';
+import '../styles/Social.css';
 
 class Social extends Component {
   render() {
     return (
-      <div>
-        <p className="App-intro">
-          Social
-        </p>
+      <div className="socialWrap">
+        <div className="test-tickle">
+          <p className="soc">
+            Social
+          </p>
+        </div>
+
       </div>
     );
   }

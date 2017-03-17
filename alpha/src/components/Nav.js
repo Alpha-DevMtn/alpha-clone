@@ -10,7 +10,7 @@ class Nav extends Component {
           <Link to="/" className='nav-lefty'>
             <img src={alphaWhite} className='nav-alpha-wt' alt=''/>
           </Link>
-       
+
         <div className="nav-center">
           <div className='dropdown-sto-nav'>
             <p>Store</p>
@@ -21,7 +21,7 @@ class Nav extends Component {
                 <p>KNITTED 3D 3</p>
             </div>
           </div>
-          
+
           <div className='dropdown-brand-nav'>
             <p>Brand</p>
             <div className='brand-nav'>
@@ -40,6 +40,7 @@ class Nav extends Component {
             </div>
           </div>
         </div>
+
         <Link to="/cart" className="nav-right">
         <p>CART</p>
         </Link>
