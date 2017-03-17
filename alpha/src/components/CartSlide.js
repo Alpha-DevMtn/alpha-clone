@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { sendToStore } from '../redux/red1';
+import { sendToStore } from '../redux/checkout';
 import { Link } from 'react-router';
 
 const bord = {
@@ -44,8 +44,9 @@ class CartSlide extends Component {
 
   render() {
     return (
-      <div style={bord} onLoad={this.getCart}>
+      <div style={bord}>
         <Link to="/customer"><p>CUSTOMER</p></Link>
+        <Link to="/temp"><p>TEMP</p></Link>
         <h3>{this.props.newInput}</h3>
         <input onChange={this.handleChange} value={this.state.qty}/>
         <button type="button" onClick={this.handleClick}>Add</button>
@@ -62,7 +63,7 @@ class CartSlide extends Component {
 
 function mapStateToProps(state) {
   return {
-    newInput: state.red1.newPayload
+    newInput: state.checkout.newPayload
   }
 }
 

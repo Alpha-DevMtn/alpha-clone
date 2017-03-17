@@ -4,11 +4,11 @@ import { login } from '../redux/checkout';
 import { Link } from 'react-router';
 import { hashHistory } from "react-router";
 
-import '../styles/Shipping.css';
+import '../styles/Payment.css';
 
 	let countries = ["usa","canada","mexico"];
 
-class Shipping extends React.Component {
+class Payment extends React.Component {
 	constructor( props ) {
 		super( props );
 
@@ -30,7 +30,6 @@ class Shipping extends React.Component {
         shipping: this.state.shipping
       , saveInfo: this.state.saveInfo
     } ) );
-    hashHistory.push( "/Payment" );
     console.log('props: ', this.props);
   }
 
@@ -52,8 +51,8 @@ class Shipping extends React.Component {
 			<div className="right">right</div>
 			<div className="left">
 				 <Link to="/temp2"><p>go to 2</p></Link>
-				<h2>Shipping</h2>
-				<h2>Shipping address</h2>
+				<h2>Payment</h2>
+				<h2>Payment address</h2>
         <p>{this.props.orderInfo.firstName}</p>
 				<div className="plain">
 					<div className="entry input-8">
@@ -63,7 +62,7 @@ class Shipping extends React.Component {
 						<p className="small-text">First name</p>
               <input
   							onChange={ this.handleChange.bind( this, "shipping" ) }
-  							placeholder="Shipping Method"
+  							placeholder="Payment Method"
   							type="text"
   							value={ this.state.shipping }
   						/>
@@ -78,6 +77,7 @@ class Shipping extends React.Component {
   						/>
 					</div>
 </div>
+
 				<div className = "plain">
 					<button type="radio"></button>
 					<p>Save this information for next time</p>
@@ -91,9 +91,8 @@ class Shipping extends React.Component {
 					</div>
 				</div>
 			</div>
-
 		);
 	}
 }
 
-export default connect(state => ( { orderInfo: state.checkout } ) )( Shipping );
+export default connect(state => ( { orderInfo: state.checkout } ) )( Payment );

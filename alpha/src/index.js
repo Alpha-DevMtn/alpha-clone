@@ -11,6 +11,8 @@ import MenProducts from './components/MenProducts';
 import WomenProducts from './components/WomenProducts';
 import CartSlide from './components/CartSlide';
 import Customer from './components/Customer';
+import Shipping from './components/Shipping';
+import Payment from './components/Payment';
 import ProductPage from './components/ProductPage';
 
 ReactDOM.render(
@@ -22,6 +24,8 @@ ReactDOM.render(
       <Route path="/womens" component={WomenProducts} />
       <Route path="/cart" component={CartSlide} />
       <Route path="/customer" component={Customer} />
+      <Route path="/temp" component={Temp} />
+      <Route path="/temp2" component={Temp2} />
       <Route path="/mens/:product_id" component={ProductPage} />
     </Route>
   </Router>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import { connect } from 'react-redux';
-// import { sendToStore } from '../redux/red1';
+
 
 const bord = {
    borderStyle: 'solid',
