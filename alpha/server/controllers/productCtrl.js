@@ -20,7 +20,9 @@ module.exports = {
                 res.send(err)
             } else {
                 results[0].sizes = results[0].sizes.split(',');
-                results[0].info = results[0].info.split('+');
+                if (results[0].info) {
+                    results[0].info = results[0].info.split('+');
+                }
                 res.send(results[0])
             }
         })
@@ -39,6 +41,18 @@ module.exports = {
         db.product.read_products_women([], function(err, results) {
             if (err) {
                 console.error(err) 
+                res.send(err)
+            } else {
+                res.send(results)
+            }
+        })
+    },
+    getCartItems: function(req, res) {
+        console.log('req.body', req.body.data, typeof req.body.data)
+        db.products.find({'product_id': JSON.parse(req.body.data)},
+        function(err, results) {
+            if (err) {
+                console.error(err)
                 res.send(err)
             } else {
                 res.send(results)

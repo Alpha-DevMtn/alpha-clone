@@ -21,8 +21,9 @@ ReactDOM.render(
       <Route path="/mens" component={MenProducts} />
       <Route path="/womens" component={WomenProducts} />
       <Route path="/cart" component={CartSlide} />
+      <Route path="/products/:product_id" component={ProductPage} />
       <Route path="/customer" component={Customer} />
-      <Route path="/mens/:product_id" component={ProductPage} />
+
     </Route>
   </Router>
 </Provider>

@@ -19,3 +19,9 @@ export function getWomensProducts() {
     return axios.get('/api/products/gender/women')
     .then(res => res.data)
 }
+export function getCartItems(theCart) {
+    console.log('this', theCart)
+    return axios.post('/api/cart', {
+        data : theCart
+    }).then(res => res.data)
+}
