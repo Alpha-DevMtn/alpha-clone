@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import '../styles/Mwa.css';
-import menlink from '../images/menlink.jpg';
-import womenlink from '../images/womenlink.jpg';
-import accesslink from '../images/accesslink.jpg';
 
 
 class Mwa extends Component {
@@ -15,7 +12,7 @@ class Mwa extends Component {
             <h1>MEN</h1>
             <div className="changing">
               <h2>MENS</h2>
-              <hr className="otherLine"/>
+              <div className="useless"></div>
               <p>Shop Now</p>
             </div>
           </div>
@@ -25,7 +22,7 @@ class Mwa extends Component {
             <h1>WOMEN</h1>
               <div className="changing">
                 <h2>WOMEN</h2>
-                <hr className="otherLine"/>
+                <div className="useless"></div>
                 <p>Shop Now</p>
               </div>
           </div>
@@ -35,7 +32,7 @@ class Mwa extends Component {
             <h1>ACCESSORIES</h1>
               <div className="changing">
                 <h2>WOMEN</h2>
-                <hr className="otherLine"/>
+                <div className="useless"></div>
                 <p>Shop Now</p>
               </div>
           </div>

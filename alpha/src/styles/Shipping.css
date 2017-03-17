@@ -8,43 +8,50 @@
   background-color: #16181a;
   height: 200px;
 }
-img {
+.feature3 img {
   max-width: 100%;
   width: 31px;
   height: 30px;
-  transition: transform 0.35s, opacity 0.35s;
+  /*transition: transform 0.35s, opacity 0.35s;*/
 }
-img:hover {
+.f3smaller {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transition: transform .35s, opacity .35s;
+}
+.f3smaller:hover {
   transform: translate3d(0, -40%, 0) translate3d(0, -20px, 0) scale(0.6);
   opacity: .15;
 }
 .feature3 {
+  position: relative;
   flex: 1;
   height: 200px;
   font-family: 'font130145';
   margin: 0 auto;
   padding: 20px;
 }
-h3 {
+.f3img {
+  margin-left: auto;
+  margin-right: auto;
+}
+.shipH3 {
   font-size: 1.2rem;
   line-height: 1.5rem;
   color: white;
   padding-top: 15px;
-  transition: transform 0.35s, opacity 0.35s;
+  /*transition: transform 0.35s, opacity 0.35s, color 0.35s;*/
 }
-h3:hover {
-  transform: translate3d(0, -50%, 0) translate3d(0, -25px, 0) scale(0.6);
-  opacity: .15;
+
+.bull {
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  top: 50%;
+  color: #16181a;
+  transform: opacity 0.35s;
 }
-span {
-  opacity: 0;
-  transition: transform 0.35s, opacity 0.35s;
-  width: 30%;
+.bull:hover {
   color: #888;
-  position: relative;
-  bottom: 70px;
-}
-span:hover {
-  opacity: 1;
-  transform: translate3d(0, -80px, 0);
 }

@@ -21,25 +21,16 @@ class Product extends Component {
   constructor(props){
     super(props);
 
-    // this.state = {
-    //   inputValue: ''
-    // }
-
-    // this.handleClick = this.handleClick.bind(this);
   }
 
-  // handleClick () {
-  //   this.props.sendToStore(this.state.inputValue);
-  //   console.log('this.props: ', this.props);
-  // }
 
   render() {
     return (
       <div style={bord}>
-      <p>each </p>
+      <img src={this.props.item.imageurl} alt="" style={imgStyle} />
+      <h3>{this.props.item.prod_name} - {this.props.item.color}</h3>
+      <h3>{this.props.item.price}</h3>
 
-      <h2>{this.props.item.title}</h2>
-      <img src={this.props.item.image} alt="" style={imgStyle} />
       </div>
     );
   }
