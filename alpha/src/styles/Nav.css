@@ -1,20 +1,23 @@
 .nav-main {
-  color: grey;
+  font-family: font130145;
+  color: black;
   width: 100%;
   height: 60px;
   line-height: 100px;
   position: fixed;
   display: flex;
   justify-content: space-between;
-  background-color: white;
-  opacity: .9;
+  background-color: #F5F5F5;
+  opacity: .95;
+  z-index: 10;
 }
 
 .nav-lefty {
   height: 100%;
   display: flex;
   align-items: center;
-  margin-left: 48px;
+
+  padding-left: 48px;
 }
 
 .nav-alpha-wt {
@@ -22,11 +25,28 @@
 }
 .nav-center {
   height: 100%;
+  width: 420px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  padding-left: 30px;
+  margin-top: 3.3px;
 }
+.p-drop {
+  font-size: 0.9em;
+}
+.nav-center span {
+  color: #707070;
+}
+.nav-center span:hover {
+  text-decoration: underline;
+}
+.nav-center p {
+  color: #707070;
+  text-decoration: none;
+}
+
 .dropdown-sto-nav {
   height: 100%;
   width: 130px;
@@ -38,20 +58,39 @@
 .store-nav {
   display: none;
   position: absolute;
+  text-decoration: none;
+  color: #707070;
   top: 60px;
-  left: 0px;
-  background-color: white;
+  left: 45px;
+  background-color: #F8F8F8;
   width: 300px;
   height: 220px;
   padding-left: 20px;
   line-height: 30px;
+  opacity: .9;
+  flex: 1;
+  z-index: 1;
 }
 .dropdown-sto-nav:hover {
   cursor: pointer;
+  text-decoration: underline;
 }
-.dropdown-sto-nav:hover .store-nav {
-    display: initial;
+.dropdown-sto-nav:hover  .store-nav {
+    display: block;
     cursor: pointer;
+    animation-name: fade-in;
+    animation-duration: .75s;
+    border-top: 1px solid black;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translate3d(0 50%, 0)
+  }
+  100% {
+    opacity: .9;
+    transform: none;
+  }
 }
 .dropdown-brand-nav {
   height: 100%;
@@ -64,20 +103,29 @@
 .brand-nav {
   display: none;
   position: absolute;
+  text-decoration: none;
+  color: #707070;
   top: 60px;
-  left: 130px;
-  background-color: white;
+  left: 150px;
+  background-color: #F8F8F8;
   width: 300px;
   height: 120px;
   padding-left: 20px;
   line-height: 30px;
+  opacity: .9;
+  flex: 1;
+  z-index: 1;
 }
 .dropdown-brand-nav:hover {
   cursor: pointer;
+  text-decoration: underline;
 }
-.dropdown-brand-nav:hover .brand-nav {
-    display: initial;
+.dropdown-brand-nav:hover  .brand-nav {
+    display: block;
     cursor: pointer;
+    animation-name: fade-in;
+    animation-duration: .75s;
+    border-top: 1px solid black;
 }
 .dropdown-looks-nav {
   height: 100%;
@@ -89,6 +137,7 @@
 }
 .dropdown-looks-nav:hover {
   cursor: pointer;
+  text-decoration: underline;
 }
 .dropdown-sup-nav {
   height: 100%;
@@ -101,25 +150,70 @@
 .sup-nav {
   display: none;
   position: absolute;
+  text-decoration: none;
+  color: #707070;
   top: 60px;
-  left: 390px;
+  left: 350px;
   background-color: white;
   width: 300px;
   height: 120px;
   padding-left: 20px;
   line-height: 30px;
-
+  opacity: .9;
+  flex: 1;
+  z-index: 1;
 }
 .dropdown-sup-nav:hover {
   cursor: pointer;
+  text-decoration: underline;
 }
-.dropdown-sup-nav:hover .sup-nav {
-    display: initial;
+.dropdown-sup-nav:hover  .sup-nav {
+    display: block;
     cursor: pointer;
+    animation-name: fade-in;
+    animation-duration: .75s;
+    border-top: 1px solid black;
 }
 .nav-right {
   height: 100%;
+  width: 193px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  padding-right: 40px;
+  position: relative;
+  color: #707070;
+  padding-right: 20px;
+  margin-top: 3.3px;
+  font-size: 20px;
+}
+.currency-wrap {
+  flex: 1;
+  width: 50px;
+  font-size: 0.9em;
+}
+
+.cart-button {
+  flex: 2;
+  width: 93px;
+  text-decoration: none;
+  color: black;
+}
+.currency:focus {
+  outline: none;
+}
+.currency {
+  font-family: font130145;
+  color: #707070;
+  font-size: 20px;
+  height: 20px;
+  border: none;
+}
+.cart-count {
+  color: white;
+  width: 15px;
+  background-color: #81CFE0;
+  padding-left: 7px;
+}
+.empty-nav {
+  padding: 0 5px;
 }
