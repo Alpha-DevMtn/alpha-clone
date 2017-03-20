@@ -2,7 +2,7 @@ import { createStore, combineReducers } from 'redux';
 import checkout from './redux/checkout';
 import { hashHistory } from 'react-router';
 import { routerReducer, syncHistoryWithStore } from 'react-router-redux';
-console.log('checkout: ', checkout);
+
 
 const defaultState = {
   checkout

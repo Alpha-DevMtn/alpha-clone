@@ -1,4 +1,4 @@
-.bord {
+.bord-prod {
     width: 22%;
     margin: 0 .8vw;
     height: 18vw;
@@ -9,10 +9,22 @@
     font-size: 15px;
     color: black;
     text-align: center;
+    position: relative;
 }
-.thumbnail {
-    height: 50%;
+.bord-prod:hover .plus {
+    display: initial;
 }
+.plus{
+    position: absolute;
+    height: 25%;
+    right: 15px;
+    bottom: 40%;
+    display: none;
+}
+.thumbnail-prod {
+    height: 60%;
+}
+
 
 @media (max-width: 1400px) {
     .bord {
