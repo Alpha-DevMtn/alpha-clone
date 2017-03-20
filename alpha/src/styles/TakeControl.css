@@ -6,7 +6,6 @@
   background-position: center;
   overflow: visible;
   height: calc(100vh + 38px);
-  margin-top: -38px;
   /*font-weight: 100;*/
 }
 .control {
