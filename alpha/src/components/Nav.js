@@ -17,8 +17,8 @@ class Nav extends Component {
             <div className='store-nav'>
               <Link to="/mens"><p>MEN</p></Link>
                 <Link to="/womens"><p>WOMEN</p></Link>
-                <p>HEADWEAR 2</p>
-                <p>KNITTED 3D 3</p>
+                <p>HEADWEAR</p>
+                <p>KNITTED 3D</p>
             </div>
           </div>
 

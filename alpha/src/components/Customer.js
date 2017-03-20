@@ -19,7 +19,7 @@ class Customer extends React.Component {
   handleClick () {
 
     this.props.sendCustomerInfo('info for you');
-    console.log('this.props: ', this.props);
+    
   }
 
   render() {
@@ -35,7 +35,7 @@ class Customer extends React.Component {
 }
 
 function mapStateToProps(state) {
-  console.log('state: ', state);
+  
   return {
     newInput: state.red1.newPayload,
     customerInfo: state.red1.customerInfo

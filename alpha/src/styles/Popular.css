@@ -28,11 +28,11 @@
   height: 60%;
   width: 100%;
 }
-img {
+/*img {
   display: flex;
   width: 66%;
   height: 66%;
-}
+}*/
 .item {
   width: 25%;
   position: absolute;

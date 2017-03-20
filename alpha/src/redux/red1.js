@@ -7,16 +7,16 @@ const initialState = {
 }
 
 export default function reducer(state=initialState, action) {
-  console.log('action: ', action);
+  
   switch(action.type) {
     case INPUT_CHANGED:
-    console.log('Input action.payload: ', action.payload);
+    
       return {
         ...state,
         newPayload: action.payload
       }
     case CUST_INFO:
-    console.log('CUST action.payload: ', action.payload);
+    
       return {
         ...state,
         customerInfo: action.payload

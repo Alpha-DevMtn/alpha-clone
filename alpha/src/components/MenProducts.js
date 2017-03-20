@@ -18,7 +18,7 @@ class MenProducts extends Component {
   render() {
 
     const maleProducts = this.state.maleProducts.map((item, i) => {
-      console.log('item: ', item);
+      
       return (
         <Link to={"/products/" + item.product_id}>
           <div key={i}>

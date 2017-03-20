@@ -23,13 +23,16 @@ class ProductPage extends Component {
     
     addToCart(id) {
         var cart = this.state.cart;
-        cart.push(id);
+        cart.push({
+            id : id,
+            qty : 1
+        });
         this.setState({cart});
         localStorage.setItem('my-cart', JSON.stringify(cart));
+        
     }
 
     render() {
-        console.log('sizes', this.state.item)
         let sizes = [];
         if (this.state.item.sizes) {
             sizes = this.state.item.sizes.map(function(size) {

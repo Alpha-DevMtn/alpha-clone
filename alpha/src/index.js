@@ -12,6 +12,7 @@ import WomenProducts from './components/WomenProducts';
 import CartSlide from './components/CartSlide';
 import Customer from './components/Customer';
 import ProductPage from './components/ProductPage';
+import Checkout from './components/Checkout';
 
 ReactDOM.render(
 <Provider store={store}>
@@ -23,7 +24,7 @@ ReactDOM.render(
       <Route path="/cart" component={CartSlide} />
       <Route path="/products/:product_id" component={ProductPage} />
       <Route path="/customer" component={Customer} />
-
+      <Route path='/checkout' component={Checkout} />
     </Route>
   </Router>
 </Provider>

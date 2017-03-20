@@ -1,45 +1,97 @@
 import React, { Component } from 'react';
 import { getCartItems } from './../services/productsService';
+import { Link } from 'react-router';
 import './../styles/CartSlide.css';
 import xicon from './../images/x-icon.png';
 
 class CartSlide extends Component {
 
   constructor(props) {
-        super(props)
-
-        this.state = {
-            fullCart: [],
-            theCart: []
-        }
-
+    super(props)
+    this.state = {
+      fullCart: [],
+      theCart: [],
+      total: 0
     }
+    this.quantityChange = this.quantityChange.bind(this)
+  }
 
   componentWillMount() {
-    const localStorageRef = localStorage.getItem(`my-cart`);
+    const localStorageRef = JSON.parse(localStorage.getItem(`my-cart`)) || [];
     if(localStorageRef) {
       this.setState({
         theCart: localStorageRef
       });
     }
+    
+    var ids = [];
+    for (var i = 0; i < localStorageRef.length; i++) {
+      ids.push(localStorageRef[i].id)
+    }
+    
 
+    getCartItems(ids).then(items => {
+      
+      for (var i = 0; i < items.length; i++) {
+        for (var j = 0; j < localStorageRef.length; j++) {
+          if (items[i].product_id === localStorageRef[j].id) {
+            items[i].qty = localStorageRef[j].qty
+          }
+        }
+      }
+      
+      this.setState({
+        fullCart: items
+      })
+    })
     
   }
 
+  quantityChange(event, quantity, id) {
+    if (event) {
+      quantity = event.target.value * 1
+    }
+    var cart = this.state.fullCart;
+    var theCart = this.state.theCart;
+    var total;
+    console.log('karl', cart)
+    if (quantity < 1) {
+      cart = cart.filter(item => item.product_id !== id);
+      theCart = theCart.filter(item => item.id !== id);
+      console.log('BOTH', cart, theCart)
+    } else {
+      cart.forEach(item => item.product_id == id ? item.qty = quantity: null);
+      theCart.forEach(item => item.id == id ? item.qty = quantity: null);
+      
+    }
+
+    this.setState({
+      fullCart: cart,
+      theCart: theCart
+    });
+    localStorage.setItem('my-cart', JSON.stringify(theCart));
+  }
 
   render() {
-
+    var self = this;
     let eachOne = [];
-    if (this.state.fullCart) {
-      eachOne = this.state.fullCart.map(function(each) {
+    if (this.state.fullCart.code !== '22P02') {
+      eachOne = this.state.fullCart.map(function(each, i) {
         return (
-        <div className='cs-eachprod' >
+        <div className='cs-eachprod' key={i}>
           <div className='cs-pic'>
             <img src={each.imageurl} alt="" className='cs-actualpic'/>
           </div>
           <div className='cs-info'>
             <p>{each.prod_name} - {each.color}</p>
             <p>{each.price}</p>
+            <button type="" onClick={
+              () => self.quantityChange(null, each.qty - 1, each.product_id)
+            }>-</button>
+            <input type="number" name="" value={each.qty} onChange={e => self.quantityChange(e, 1, each.product_id)} />
+            <button type="" onClick={
+              () => self.quantityChange(null, each.qty + 1, each.product_id)
+            }>+</button>
           </div>
         </div>
         )
@@ -48,27 +100,23 @@ class CartSlide extends Component {
 
     return (
       <div className='cs-main'>
-        {console.log('fullCart', this.state.fullCart)} 
         <div className='cs-exit'>
           <img src={xicon} alt="" className='cs-realexit'/>
         </div> 
         {eachOne}
         <div className='cs-buttons'>
           <button type="" className='cs-cont'>CONTINUE</button>
-          <button type="" className='cs-check'>CHECKOUT</button>
+          <Link to={'/checkout'}>
+            <button type="" className='cs-check'>CHECKOUT</button>
+          </Link>
         </div>
+        {console.log('total', this.state.total)}
       </div>
     );
   }
 
-  componentDidMount() {
-    getCartItems(this.state.theCart).then(items => {
-      this.setState({
-        fullCart: items
-      })
-    })
-    
-  }
+ 
+
 }
 
 export default CartSlide

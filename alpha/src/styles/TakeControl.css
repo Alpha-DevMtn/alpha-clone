@@ -1,13 +1,11 @@
 .wrapper {
   font-family: font130145;
-  background-image: url("../images/image1.jpg");
+  background-image: url("../images/image1.JPG");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   overflow: visible;
   height: calc(100vh + 38px);
-  margin-top: -38px;
-  /*font-weight: 100;*/
 }
 .control {
   position: absolute;
