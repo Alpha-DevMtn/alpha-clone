@@ -6,7 +6,6 @@
   background-position: center;
   overflow: visible;
   height: calc(100vh + 38px);
-
 }
 .control {
   position: absolute;
