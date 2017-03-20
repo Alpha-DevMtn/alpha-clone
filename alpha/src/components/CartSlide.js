@@ -29,7 +29,7 @@ class CartSlide extends Component {
         <p className="App-intro">
           CartSlide
           {console.log('theCart', this.state.theCart)}
-          {console.log('fullCart', this.state.fullCart)}  
+          {console.log('fullCart', this.state.fullCart)}
         </p>
       </div>
     );

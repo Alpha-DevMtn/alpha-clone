@@ -1,12 +1,100 @@
 .socialWrap {
-  height: 450px;
-  background-color: lightgray;
+  background-color: #16181a;
+  /*padding:100px 0px 0px 0px;*/
+  overflow: hidden;
+  color: white;
+  text-align: center;
+  font-family: font130145;
 }
-.test-tickle {
-  position: relative;
-  height: 10%;
+
+.social-images {
+  width: 100%;
+  height: calc(100vw/6);
+  float: left;
 }
+
+.social-image {
+  width: calc(100%/6 - 2px);
+  height: calc(100vw/6 - 2px);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  float: left;
+  margin: 1px;
+  opacity: .9;
+}
+
+.social-image:hover {
+  opacity: 1;
+}
+
+.instagram1 {
+  background-image: url("../images/instagram1.JPG");
+}
+
+.instagram2 {
+  background-image: url("../images/instagram2.JPG");
+}
+
+.instagram3 {
+  background-image: url("../images/instagram3.JPG");
+}
+
+.instagram4 {
+  background-image: url("../images/instagram4.JPG");
+}
+
+.instagram5 {
+  background-image: url("../images/instagram5.JPG");
+}
+
+.instagram6 {
+  background-image: url("../images/instagram6.JPG");
+}
+
+.instagram7 {
+  background-image: url("../images/instagram7.JPG");
+}
+
+.instagram8 {
+  background-image: url("../images/instagram8.JPG");
+}
+
+.instagram9 {
+  background-image: url("../images/instagram9.JPG");
+}
+
+.instagram10 {
+  background-image: url("../images/instagram10.JPG");
+}
+
+.instagram11 {
+  background-image: url("../images/instagram11.JPG");
+}
+
+.instagram12 {
+  background-image: url("../images/instagram12.JPG");
+}
+
 .soc {
   position: absolute;
-  
+
+}
+
+@media (max-width: 780px) {
+
+.mobile-hide {
+  display: none;
+}
+
+.social-image {
+  width: calc(100%/3);
+  height: calc(100vw/3);
+  margin: 0px;
+}
+
+.social-images {
+  height: calc(100vw/1.5);
+}
+
 }

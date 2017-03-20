@@ -18,32 +18,32 @@ class Popular extends Component {
         <div className="items">
           <div className="item item1">
             <Link>
-              <img src={shirt1} alt="Stealth Tshirt"/>
+              <img className="pop-img" className="pop-img" src={shirt1} alt="Stealth Tshirt"/>
               <p className="caption">3D KNITTED™ Performance Shirt - Stealth</p>
-              <span className="pryce">$47.00 USD</span>
+              <p className="pop-bold">$47.00 USD</p>
             </Link>
           </div>
           <div className="item item2">
             <Link>
-              <img src={shirt2} alt="Forge Tshirt"/>
+              <img className="pop-img" src={shirt2} alt="Forge Tshirt"/>
               <p className="caption">3D KNITTED™ Performance Shirt - Forge</p>
-              <span>$47.00 USD</span>
+              <p className="pop-bold">$47.00 USD</p>
             </Link>
           </div>
           <div className="item item3">
             <Link>
-              <img src={joggers1} alt="Dark Joggers"/>
+              <img className="pop-img" src={joggers1} alt="Dark Joggers"/>
               <p className="caption">Tech Zip Joggers - DRK</p>
-              <span>$57.90 USD</span>
+              <p className="pop-bold">$57.90 USD</p>
             </Link>
           </div>
           <div className="item item4">
             <Link>
-              <img src={joggers2} alt="Black Joggers"/>
+              <img className="pop-img" src={joggers2} alt="Black Joggers"/>
               <p className="caption">Jogger Sweat Pants - Break - Black</p>
-              <span>$49.90 USD</span>
+              <p className="pop-bold">$49.90 USD</p>
             </Link>
-          </div>*/}
+          </div>
         </div>
       </div>
     );
