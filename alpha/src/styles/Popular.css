@@ -1,7 +1,10 @@
 .wrap {
-  height: 450px;
   width: 100%;
   background-color: white;
+  font-size: 15px;
+  text-align: center;
+  padding: 60px 0px;
+  font-family: font130145;
 
 }
 .forH2 {
@@ -9,44 +12,55 @@
 
 }
 .popItems {
-  position: absolute;
-  top: 15%;
+ padding: 0 0 50px 0;
 
 }
-.caption {
-  position: absolute;
-  top: 80%;
+.pop-bold {
+ font-family: font122629;
 }
-.pryce {
-  position: absolute;
 
-}
 .items {
   position: relative;
+  width: 80%;
   display: flex;
-  position: relative;
-  height: 60%;
-  width: 100%;
+  align-items: center;
+  display: inline-block;
+  vertical-align: top;
 }
-img {
-  display: flex;
+
+.pop-img {
   width: 66%;
-  height: 66%;
+  height: auto;
 }
+
 .item {
   width: 25%;
-  position: absolute;
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
 }
+
 .item1 {
   flex: 1;
-
 }
 .item2 {
-  flex: 2;
+  flex: 1;
 }
 .item3 {
-  flex: 3
+  flex: 1;
 }
 .item4 {
-  flex: 4;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+
+  .item {
+    width: 49%;
+  }
+
+  .pop-img {
+    width: 80%;
+  }
+
 }
