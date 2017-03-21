@@ -2,8 +2,9 @@
 .threeFeatures {
   display: flex;
   color: #fff;
-  /*padding: 20px 0;*/
-  /*overflow: visible;*/
+
+  padding: 20px 0;
+
   text-align: center;
   background-color: #16181a;
   height: 200px;
@@ -12,7 +13,6 @@
   max-width: 100%;
   width: auto;
   height: 30px;
-  /*transition: transform 0.35s, opacity 0.35s;*/
 }
 .f3smaller {
   position: absolute;
@@ -45,7 +45,6 @@
   line-height: 1.5rem;
   color: white;
   padding-top: 15px;
-  /*transition: transform 0.35s, opacity 0.35s, color 0.35s;*/
 }
 
 .bull {

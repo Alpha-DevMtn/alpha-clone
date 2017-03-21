@@ -48,8 +48,8 @@ module.exports = {
         })
     },
     getCartItems: function(req, res) {
-        console.log('req.body', req.body.data, typeof req.body.data)
-        db.products.find({'product_id': JSON.parse(req.body.data)},
+        
+        db.products.find({'product_id': req.body.data},
         function(err, results) {
             if (err) {
                 console.error(err)
