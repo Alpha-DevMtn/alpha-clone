@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './../styles/Product.css'
 import plus from './../images/plus-icon.png';
 // import { connect } from 'react-redux';
-// import { sendToStore } from '../redux/red1';
+
 
 class Product extends Component {
 

@@ -2,33 +2,39 @@
 .threeFeatures {
   display: flex;
   color: #fff;
+
   padding: 20px 0;
+
   text-align: center;
   background-color: #16181a;
   height: 200px;
 }
 .feature3 img {
   max-width: 100%;
-  width: 31px;
+  width: auto;
   height: 30px;
 }
 .f3smaller {
   position: absolute;
   height: 100%;
   width: 100%;
+  padding: 10px 0px;
   transition: transform .35s, opacity .35s;
 }
-.f3smaller:hover {
-  transform: translate3d(0, -40%, 0) translate3d(0, -20px, 0) scale(0.6);
+
+.ship-trigger:hover ~ .f3smaller {
+  transform: translateY(-60px) scale(0.6);
   opacity: .15;
 }
+
 .feature3 {
   position: relative;
   flex: 1;
   height: 200px;
   font-family: 'font130145';
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px 0px;
+  opacity: .8;
 }
 .f3img {
   margin-left: auto;
@@ -45,10 +51,36 @@
   position: absolute;
   height: 50%;
   width: 100%;
-  top: 50%;
-  color: #16181a;
+  font-size: .9em;
+  top: 30%;
+  /*color: #16181a;*/
+  opacity: 0;
   transform: opacity 0.35s;
+  line-height: 2em;
 }
-.bull:hover {
-  color: #888;
+
+.ship-trigger:hover ~ .bull {
+  opacity: .6;
+}
+
+.ship-trigger{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /*background-color: green;*/
+  opacity:.5;
+  z-index: 1;
+}
+
+@media (max-width:600px) {
+
+  .ship-trigger:hover ~ .bull {
+    opacity: 0;
+  }
+
+  .ship-trigger:hover ~ .f3smaller {
+    transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+
 }
