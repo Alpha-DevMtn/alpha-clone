@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getCartItems } from './../services/productsService';
 import { Link } from 'react-router';
 import './../styles/CartSlide.css';
-import xicon from './../images/x-icon.png';
+
 
 class CartSlide extends Component {
 
@@ -15,6 +15,7 @@ class CartSlide extends Component {
     }
     this.quantityChange = this.quantityChange.bind(this)
   }
+
 
   componentWillMount() {
     const localStorageRef = JSON.parse(localStorage.getItem(`my-cart`)) || [];
@@ -87,11 +88,11 @@ class CartSlide extends Component {
             <p>{each.price}</p>
             <button type="" onClick={
               () => self.quantityChange(null, each.qty - 1, each.product_id)
-            }>-</button>
-            <input type="number" name="" value={each.qty} onChange={e => self.quantityChange(e, 1, each.product_id)} />
+            } className='cs-quantbutton'>-</button>
+            <input type="number" name="" value={each.qty} onChange={e => self.quantityChange(e, 1, each.product_id)} className='inputnum-cs' />
             <button type="" onClick={
               () => self.quantityChange(null, each.qty + 1, each.product_id)
-            }>+</button>
+            } className='cs-quantbutton'>+</button>
           </div>
         </div>
         )
@@ -99,10 +100,7 @@ class CartSlide extends Component {
     }
 
     return (
-      <div className='cs-main'>
-        <div className='cs-exit'>
-          <img src={xicon} alt="" className='cs-realexit'/>
-        </div> 
+      <div className='main-cs'> 
         {eachOne}
         <div className='cs-buttons'>
           <button type="" className='cs-cont'>CONTINUE</button>

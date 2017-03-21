@@ -4,11 +4,15 @@ var session = require('express-session');
 
 var config = require('./config');
 
+const stripe = require('stripe')(config.STRIPE_KEYS.secretKey);
+
 var app = module.exports = express();
 
 app.use(bodyParser.json());
 
 var db = require('./massive');
+
+
 
 
 var productCtrl = require('./controllers/productCtrl');

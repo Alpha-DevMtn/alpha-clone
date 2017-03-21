@@ -60,11 +60,9 @@ class ProductPage extends Component {
                         <select className='sizes-pp'>
                             {sizes}
                         </select>
-                        <Link to={"/cart"}>
                             <button onClick={() =>
                             this.addToCart(this.state.item.product_id)
                             } className='btn-pp'>Add To Cart</button>
-                        </Link>
                         {info}
                     </div>
                 </div>
