@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 import Product from './Product';
 import { getMensProducts } from './../services/productsService';
 import './../styles/MenProducts.css';
-import ProductPage from './ProductPage';
 
 
 
@@ -19,11 +18,11 @@ class MenProducts extends Component {
   render() {
 
     const maleProducts = this.state.maleProducts.map((item, i) => {
-      console.log('item: ', item);
+      
       return (
         <Link to={"/products/" + item.product_id}>
           <div key={i}>
-            <Product {...this.props} i={i} key={i} item=  {item} />
+            <Product {...this.props} i={i} key={i} item={item} />
           </div>
         </Link>
       )

@@ -19,6 +19,7 @@ class Nav extends Component {
                 <Link to="/womens"><p>WOMEN</p></Link>
                 <p>HEADWEAR</p>
                 <p>3D KNITTED™</p>
+
             </div>
           </div>
           <div className='dropdown-brand-nav'>

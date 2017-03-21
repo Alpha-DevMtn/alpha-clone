@@ -44,6 +44,7 @@ class Customer extends React.Component {
 	});
 
 
+
 	render() {
 		return (
 			<div>
