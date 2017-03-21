@@ -9,31 +9,31 @@ class Mwa extends Component {
       <div className="mwaWrapper">
         <Link to="/mens">
           <div className="men">
-            <h1>MEN</h1>
+            <h1 className="mwa-h1">MEN</h1>
             <div className="changing">
-              <h2>MENS</h2>
+              <h2 className="mwa-h2">MENS</h2>
               <div className="useless"></div>
-              <p>Shop Now</p>
+              <p className="mwa-p">Shop Now</p>
             </div>
           </div>
         </Link>
         <Link to="/womens">
           <div className="women">
-            <h1>WOMEN</h1>
+            <h1 className="mwa-h1">WOMEN</h1>
               <div className="changing">
-                <h2>WOMEN</h2>
+                <h2 className="mwa-h2">WOMEN</h2>
                 <div className="useless"></div>
-                <p>Shop Now</p>
+                <p className="mwa-p">Shop Now</p>
               </div>
           </div>
         </Link>
         <Link>
           <div className="accessories">
-            <h1>ACCESSORIES</h1>
+            <h1 className="mwa-h1">ACCESSORIES</h1>
               <div className="changing">
-                <h2>WOMEN</h2>
+                <h2 className="mwa-h2">WOMEN</h2>
                 <div className="useless"></div>
-                <p>Shop Now</p>
+                <p className="mwa-p">Shop Now</p>
               </div>
           </div>
         </Link>

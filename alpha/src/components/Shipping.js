@@ -5,11 +5,13 @@ import world from '../images/world.png';
 import murica from '../images/murica.png';
 import worryFree from '../images/worry-free.png';
 
+
 class Shipping extends Component {
   render() {
     return (
       <div className="threeFeatures">
         <div className="feature3">
+          <div className="ship-trigger"></div>
           <div className="f3smaller">
             <img className="f3img" src={world} alt="world"/>
             <h3 className="shipH3">WORLDWIDE<br/>EXPRESS SHIPPING</h3>
@@ -20,6 +22,7 @@ class Shipping extends Component {
           </h4>
         </div>
         <div className="feature3">
+          <div className="ship-trigger"></div>
           <div className="f3smaller">
           <img className="f3img" src={murica} alt="express shipping icon" />
             <h3>EXPRESS US<br/>SHIPPING</h3>
@@ -29,6 +32,7 @@ class Shipping extends Component {
           </h4>
         </div>
         <div className="feature3">
+          <div className="ship-trigger"></div>
           <div className="f3smaller">
             <img className="f3img" src={worryFree} alt="product exchanges icon" />
             <h3>WORRY-FREE<br/>EXCHANGES</h3>

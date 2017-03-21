@@ -1,14 +1,14 @@
 import { createStore, combineReducers } from 'redux';
-import red1 from './redux/red1';
+import checkout from './redux/checkout';
 import { hashHistory } from 'react-router';
 import { routerReducer, syncHistoryWithStore } from 'react-router-redux';
-console.log('red1: ', red1);
+console.log('checkout: ', checkout);
 
 const defaultState = {
-  red1
+  checkout
 };
 
-const rootReducer = combineReducers({red1, routing: routerReducer});
+const rootReducer = combineReducers({checkout, routing: routerReducer});
 const store = createStore(rootReducer, defaultState);
 
 export const history = syncHistoryWithStore(hashHistory, store);

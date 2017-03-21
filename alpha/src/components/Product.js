@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './../styles/Product.css'
 // import { connect } from 'react-redux';
-// import { sendToStore } from '../redux/red1';
+
 
 class Product extends Component {
 
