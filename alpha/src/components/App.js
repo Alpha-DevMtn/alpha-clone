@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Nav from './Nav';
+import Footer from './Footer';
 
 
 class App extends Component {
@@ -8,6 +9,7 @@ class App extends Component {
       <div>
         <Nav />
         {this.props.children}
+        <Footer />
       </div>
     )
   }
