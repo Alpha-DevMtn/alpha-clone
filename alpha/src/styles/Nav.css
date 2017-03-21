@@ -191,12 +191,24 @@
   width: 50px;
   font-size: 0.9em;
 }
-
+.exitdiv-cs {
+    position: absolute;
+    z-index: 50;
+    width: 40px;
+    right: 10px;
+    top: 0;
+}
+.cs-realexit {
+    width: 100%;
+}
 .cart-button {
   flex: 2;
   width: 93px;
   text-decoration: none;
   color: black;
+}
+.cart-button:active .cs-main {
+  display: flex;
 }
 .currency:focus {
   outline: none;
