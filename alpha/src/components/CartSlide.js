@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { getCartItems } from './../services/productsService';
 import { Link } from 'react-router';
 import './../styles/CartSlide.css';
+import { visible } from '../redux/showCart';
+import { connect } from 'react-redux';
 
 
 class CartSlide extends Component {
@@ -16,6 +18,12 @@ class CartSlide extends Component {
     this.quantityChange = this.quantityChange.bind(this)
   }
 
+  hideCart() {
+		event.preventDefault();
+		this.props.dispatch( visible( {
+			  slide: 'none-cs'
+		}));
+	}
 
   componentWillMount() {
     const localStorageRef = JSON.parse(localStorage.getItem(`my-cart`)) || [];
@@ -24,15 +32,15 @@ class CartSlide extends Component {
         theCart: localStorageRef
       });
     }
-    
+
     var ids = [];
     for (var i = 0; i < localStorageRef.length; i++) {
       ids.push(localStorageRef[i].id)
     }
-    
+
 
     getCartItems(ids).then(items => {
-      
+
       for (var i = 0; i < items.length; i++) {
         for (var j = 0; j < localStorageRef.length; j++) {
           if (items[i].product_id === localStorageRef[j].id) {
@@ -40,12 +48,12 @@ class CartSlide extends Component {
           }
         }
       }
-      
+
       this.setState({
         fullCart: items
       })
     })
-    
+
   }
 
   quantityChange(event, quantity, id) {
@@ -63,7 +71,7 @@ class CartSlide extends Component {
     } else {
       cart.forEach(item => item.product_id == id ? item.qty = quantity: null);
       theCart.forEach(item => item.id == id ? item.qty = quantity: null);
-      
+
     }
 
     this.setState({
@@ -96,14 +104,14 @@ class CartSlide extends Component {
           </div>
         </div>
         )
-      }) 
+      })
     }
 
     return (
-      <div className='main-cs'> 
+      <div className='main-cs'>
         {eachOne}
         <div className='cs-buttons'>
-          <button type="" className='cs-cont'>CONTINUE</button>
+          <button type="" onClick={ this.hideCart.bind( this ) } className='cs-cont'>CONTINUE</button>
           <Link to={'/checkout'}>
             <button type="" className='cs-check'>CHECKOUT</button>
           </Link>
@@ -113,8 +121,8 @@ class CartSlide extends Component {
     );
   }
 
- 
+
 
 }
 
-export default CartSlide
+export default connect(state => ( { cartLogic: state.showCart } ) )( CartSlide );

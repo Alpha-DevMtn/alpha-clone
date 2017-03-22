@@ -83,3 +83,7 @@ input {
 .pay-gray {
   color: lightgrey;
 }
+
+.grey {
+  background-color: grey;
+}

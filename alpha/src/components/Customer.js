@@ -1,14 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { login } from '../redux/checkout';
+import { gatherInfo } from '../redux/checkout';
 import { Link } from 'react-router';
 import { hashHistory } from "react-router";
-import { getCartItems } from './../services/productsService';
 import CheckoutProducts from './CheckoutProducts';
-
+import paypal from './../images/paypal.png';
+import amazonpay from './../images/amazonpay.png';
+import alphaWhite from './../images/alphaWhite.png';
+import countries from './../services/checkoutService';
 import '../styles/Customer.css';
 
-let countries = ["usa","canada","mexico"];
+
 
 class Customer extends React.Component {
 	constructor( props ) {
@@ -17,7 +19,6 @@ class Customer extends React.Component {
 		this.state = {
 			firstName: ""
 			, lastName: ""
-			// , countries: ["us","canada","mexico"]
 		};
 	}
 
@@ -26,9 +27,9 @@ class Customer extends React.Component {
 		this.setState( { [ field ]: event.target.value } );
 	}
 
-	login( event ) {
+	gatherInfo( event ) {
 		event.preventDefault();
-		this.props.dispatch( login( {
+		this.props.dispatch( gatherInfo( {
 			  firstName: this.state.firstName
 			, lastName: this.state.lastName
 		} ) );
@@ -50,20 +51,28 @@ class Customer extends React.Component {
 		return (
 			<div>
 			<div className="header">
-				<img src="" alt="ALPHA"/>
+				<img src={alphaWhite} alt="ALPHA"/>
 			</div>
 			<CheckoutProducts />
 			<div className="left">
 				<Link className="pay-links small-text" to="/customer">Customer information <span className="pay-gray">&gt; </span></Link>
 				<Link className="pay-links small-text" to="/shipping">Shipping method <span className="pay-gray">&gt; </span></Link>
 				<Link className="pay-links small-text" to="/payment">Payment method</Link>
+
+				<div className="paypal"><img src={paypal} alt=""/></div>
+				<div className="amazon-pay"><img src={amazonpay} alt=""/></div>
+			<p>or</p>
+				<h2>Customer information</h2>
+				<div className="entry input-8">
+					<p className="small-text">Email (optional)</p>
+				</div>
+				<button type="radio"></button>
+				<p>Save this information for next time</p>
 				<h2>Shipping address</h2>
 				<div className="plain">
-					<div className="entry input-8">
-						<p className="small-text">Email (optional)</p>
-					</div>
+
 					<div className="entry input-4">
-						<p className="small-text">First name</p>
+						<p style={this.state.firstName ? {display:'block'} :{display:'none'} } className="small-text">First name</p>
 						<input
 							onChange={ this.handleChange.bind( this, "firstName" ) }
 							placeholder="First Name"
@@ -72,7 +81,7 @@ class Customer extends React.Component {
 						/>
 					</div>
 					<div className="entry input-4">
-						<p className="small-text">Last name</p>
+						<p style={this.state.lastName ? {display:'block'} :{display:'none'} } className="small-text">Last name</p>
 						<input
 							onChange={ this.handleChange.bind( this, "lastName" ) }
 							placeholder="Last Name"
@@ -115,7 +124,7 @@ class Customer extends React.Component {
 					<p>Save this information for next time</p>
 
 					<button
-						onClick={ this.login.bind( this ) }
+						onClick={ this.gatherInfo.bind( this ) }
 						type="button"
 						className="info-button"
 					>
