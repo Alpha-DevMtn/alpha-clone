@@ -4,6 +4,8 @@ import '../styles/Nav.css';
 import alphaWhite from './../images/alphablack.png';
 import CartSlide from './CartSlide';
 import xicon from './../images/x-icon.png';
+import { connect } from 'react-redux';
+import { visible } from '../redux/showCart';
 
 class Nav extends Component {
 
@@ -11,19 +13,25 @@ class Nav extends Component {
     super(props)
     this.state = {
       display : 'none-cs',
-      quant: 0
+      quant: 0,
+      show: false
     }
-    this.handleClick = this.handleClick.bind(this);
   }
 
+  showCart(){
+    event.preventDefault();
+    this.props.dispatch( visible( {
+        slide: 'show-cs'
+    }));
+  }
 
-    handleClick(){
-        if (this.state.display === 'none-cs'){
-            this.setState({display: 'show-cs'});
-        } else {
-          this.setState({display: 'none-cs'})
-        }
-    }
+  hideCart() {
+		event.preventDefault();
+		this.props.dispatch( visible( {
+			  slide: 'none-cs'
+		}));
+	}
+
 
   render(){
     return (
@@ -39,7 +47,6 @@ class Nav extends Component {
                 <Link to="/womens"><p>WOMEN</p></Link>
                 <p>HEADWEAR</p>
                 <p>3D KNITTED™</p>
-
             </div>
           </div>
           <div className='dropdown-brand-nav'>
@@ -71,14 +78,14 @@ class Nav extends Component {
               <option value="">JPY</option>
             </select>
           </div>
-            
+
           <div className="cart-button">
-            <span className="fa fa-cart-plus" onClick={this.handleClick}></span>
+            <span className="fa fa-cart-plus" onClick={ this.showCart.bind( this ) }></span>
             <span className="empty-nav"></span>
             <span className="fa fa-square-0 cart-count">{this.state.quant}</span>
           </div>
-          <div className={this.state.display}>
-            <div  onClick={this.handleClick} className='exitdiv-cs'>
+          <div className={this.props.cartLogic.display}>
+            <div  onClick={ this.hideCart.bind( this ) } className='exitdiv-cs'>
               <img src={xicon} alt="" className='cs-realexit'/>
             </div>
             <CartSlide  />
@@ -101,4 +108,4 @@ class Nav extends Component {
 
 }
 
-export default Nav
+export default connect(state => ( { cartLogic: state.showCart } ) )( Nav );
