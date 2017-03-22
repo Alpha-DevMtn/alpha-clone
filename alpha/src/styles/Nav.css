@@ -7,7 +7,7 @@
   position: fixed;
   display: flex;
   justify-content: space-between;
-  background-color: #F5F5F5;
+  background-color: #FFFFFF;
   opacity: .95;
   z-index: 10;
 }
@@ -31,7 +31,7 @@
   align-items: center;
   position: relative;
   padding-left: 30px;
-  margin-top: 3.3px;
+  border-top: 3.3px;
 }
 .p-drop {
   font-size: 0.9em;
@@ -80,12 +80,11 @@
     cursor: pointer;
     animation-name: fade-in;
     animation-duration: .75s;
-    border-top: 1px solid black;
 }
 @keyframes fade-in {
   0% {
     opacity: 0;
-    transform: translate3d(0 50%, 0)
+    transform: translate3d(0, 50%, 0)
   }
   100% {
     opacity: .9;
@@ -125,7 +124,6 @@
     cursor: pointer;
     animation-name: fade-in;
     animation-duration: .75s;
-    border-top: 1px solid black;
 }
 .dropdown-looks-nav {
   height: 100%;
@@ -172,7 +170,6 @@
     cursor: pointer;
     animation-name: fade-in;
     animation-duration: .75s;
-    border-top: 1px solid black;
 }
 .nav-right {
   height: 100%;
@@ -183,7 +180,7 @@
   position: relative;
   color: #707070;
   padding-right: 20px;
-  margin-top: 3.3px;
+  border-top: 3.3px;
   font-size: 20px;
 }
 .currency-wrap {
@@ -228,4 +225,29 @@
 }
 .empty-nav {
   padding: 0 5px;
+}
+
+
+@media (max-width:960px) {
+  .dropdown-sto-nav:hover  .store-nav {
+      display: block;
+      cursor: pointer;
+      animation-name: fade-in;
+      animation-duration: .75s;
+      border-top: 1px solid black;
+ }
+ .dropdown-sup-nav:hover  .sup-nav {
+     display: block;
+     cursor: pointer;
+     animation-name: fade-in;
+     animation-duration: .75s;
+     border-top: 1px solid black;
+ }
+ .dropdown-sup-nav:hover  .sup-nav {
+     display: block;
+     cursor: pointer;
+     animation-name: fade-in;
+     animation-duration: .75s;
+     border-top: 1px solid black;
+ }
 }
