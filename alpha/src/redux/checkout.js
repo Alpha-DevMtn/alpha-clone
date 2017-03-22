@@ -9,11 +9,9 @@ const initialState = {
 }
 
 export default function reducer(state=initialState, action) {
-  console.log('action: ', action);
   switch(action.type) {
 
     case CUSTOMER:
-console.log('state from reducer: ', state);
       return {
         ...state,
         firstName: action.customerInfo.firstName
@@ -21,7 +19,6 @@ console.log('state from reducer: ', state);
       };
 
     case SHIPPING:
-    console.log('state from reducer: ', state);
     return {
       ...state,
       shipping: action.shippingInfo.shipping
@@ -33,24 +30,10 @@ console.log('state from reducer: ', state);
   }
 }
 
-export function login( customerInfo ) {
+export function gatherInfo( customerInfo ) {
     return { type: CUSTOMER, customerInfo };
 }
 
 export function ship( shippingInfo ) {
     return { type: SHIPPING, shippingInfo };
 }
-
-// export function sendToStore(data) {
-//   return {
-//     type: INPUT_CHANGED,
-//     payload: data
-//   }
-// }
-//
-// export function sendCustomerInfo(data) {
-//   return {
-//     type: CUST_INFO,
-//     payload: data
-//   }
-// }

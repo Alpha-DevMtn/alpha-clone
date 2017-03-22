@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { login } from '../redux/checkout';
+import { gatherInfo } from '../redux/checkout';
 import { Link } from 'react-router';
 import { hashHistory } from "react-router";
 import paypal from './../images/paypal.png';
 import amazonpay from './../images/amazonpay.png';
 import alphaWhite from './../images/alphaWhite.png';
 import countries from './../services/checkoutService';
-
 import '../styles/Customer.css';
 
 
@@ -19,7 +18,6 @@ class Customer extends React.Component {
 		this.state = {
 			firstName: ""
 			, lastName: ""
-			// , countries: ["us","canada","mexico"]
 		};
 	}
 
@@ -28,9 +26,9 @@ class Customer extends React.Component {
 		this.setState( { [ field ]: event.target.value } );
 	}
 
-	login( event ) {
+	gatherInfo( event ) {
 		event.preventDefault();
-		this.props.dispatch( login( {
+		this.props.dispatch( gatherInfo( {
 			  firstName: this.state.firstName
 			, lastName: this.state.lastName
 		} ) );
@@ -126,7 +124,7 @@ class Customer extends React.Component {
 					<p>Save this information for next time</p>
 
 					<button
-						onClick={ this.login.bind( this ) }
+						onClick={ this.gatherInfo.bind( this ) }
 						type="button"
 						className="info-button"
 					>
