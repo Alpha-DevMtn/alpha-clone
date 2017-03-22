@@ -15,13 +15,6 @@
   /*padding: 2.5%;*/
 }
 
-.right {
-  width: 40%;
-  float: right;
-  background-color: grey;
-  position: relative;
-  height: 100vh;
-}
 
 .entry {
   border: solid lightgrey thin;

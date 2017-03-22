@@ -17,7 +17,7 @@ class Product extends Component {
         <img src={this.props.item.imageurl} className='thumbnail-prod' alt='' />
         <p>{this.props.item.prod_name} - {this.props.item.color}</p>
         <h3>{this.props.item.price}</h3>
-        <img src={plus} alt="" className='plus' />
+        <img src={plus} alt="" className='plus-prod' />
       </div>
     );
   }

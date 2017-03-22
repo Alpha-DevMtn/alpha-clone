@@ -7,7 +7,7 @@
   position: fixed;
   display: flex;
   justify-content: space-between;
-  background-color: #F5F5F5;
+  background-color: white;
   opacity: .95;
   z-index: 10;
 }
@@ -62,7 +62,7 @@
   color: #707070;
   top: 60px;
   left: 45px;
-  background-color: #F8F8F8;
+  background-color: white;
   width: 300px;
   height: 220px;
   padding-left: 20px;
@@ -107,7 +107,7 @@
   color: #707070;
   top: 60px;
   left: 150px;
-  background-color: #F8F8F8;
+  background-color: white;
   width: 300px;
   height: 120px;
   padding-left: 20px;
@@ -199,7 +199,16 @@
     top: 0;
 }
 .cs-realexit {
-    width: 100%;
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    border: solid 1px white;
+    color: white;
+    font-size: 20px;
+    border-radius: 50%;
+}
+.cs-realexit:focus {
+  outline: none;
 }
 .cart-button {
   flex: 2;

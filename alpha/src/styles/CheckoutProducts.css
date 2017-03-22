@@ -1,0 +1,50 @@
+.right {
+  width: 40%;
+  float: right;
+  background-color: #FBFEFB;
+  position: relative;
+  height: 100vh;
+  border-left: solid 1px #ddd;
+}
+
+.chk-single {
+    width: 100%;
+    position: relative;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+.chk-imagebox {
+    width: 100px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+.chk-image {
+    width: 85%;
+    margin-top: 8px;
+    border: solid 1px #ddd;
+    border-radius: 5px;
+}
+.qtycircle-chk {
+    width: 22px;
+    height: 22px;
+    background-color: #bbb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.qty-chk {
+    color: white;
+    font-size: 12px;
+}
+.chk-singleinfo {
+    width: 250px;
+    display: flex;
+    justify-content: space-around;
+}

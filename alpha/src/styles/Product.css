@@ -11,14 +11,14 @@
     text-align: center;
     position: relative;
 }
-.bord-prod:hover .plus {
+.bord-prod:hover .plus-prod {
     display: initial;
 }
-.plus{
+.plus-prod{
     position: absolute;
-    height: 25%;
-    right: 15px;
-    bottom: 40%;
+    height: 20%;
+    right: 10px;
+    bottom: 45%;
     display: none;
 }
 .thumbnail-prod {
