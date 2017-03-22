@@ -74,7 +74,7 @@ class Customer extends React.Component {
 				<div className="plain">
 
 					<div className="entry input-4">
-						<p className="small-text">First name</p>
+						<p style={this.state.firstName ? {display:'block'} :{display:'none'} } className="small-text">First name</p>
 						<input
 							onChange={ this.handleChange.bind( this, "firstName" ) }
 							placeholder="First Name"
@@ -83,7 +83,7 @@ class Customer extends React.Component {
 						/>
 					</div>
 					<div className="entry input-4">
-						<p className="small-text">Last name</p>
+						<p style={this.state.lastName ? {display:'block'} :{display:'none'} } className="small-text">Last name</p>
 						<input
 							onChange={ this.handleChange.bind( this, "lastName" ) }
 							placeholder="Last Name"
