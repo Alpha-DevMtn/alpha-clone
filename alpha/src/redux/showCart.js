@@ -1,7 +1,7 @@
 const SHOWCART = "checkout/SHOWCART";
 
 const initialState = {
-  display: ""
+  display: "none-cs"
 }
 
 export default function reducer(state=initialState, action) {

@@ -29,6 +29,7 @@ ReactDOM.render(
     <Route path="/customer" component={Customer} />
     <Route path="/shipping" component={ShippingInfo} />
     <Route path="/payment" component={Payment} />
+
   </Router>
 </Provider>
 

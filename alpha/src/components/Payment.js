@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { ship } from '../redux/checkout';
 import { Link } from 'react-router';
 import { hashHistory } from "react-router";
+import CheckoutProducts from './CheckoutProducts';
 
 import '../styles/Customer.css';
 
@@ -48,7 +49,7 @@ class Payment extends React.Component {
 			<div className="header">
 				<img src="" alt="ALPHA"/>
 			</div>
-			<div className="right">right</div>
+			<CheckoutProducts />
 			<div className="left">
 				<Link className="pay-links small-text" to="/customer">Customer information <span className="pay-gray">&gt; </span></Link>
 				<Link className="pay-links small-text" to="/shipping">Shipping method <span className="pay-gray">&gt; </span></Link>

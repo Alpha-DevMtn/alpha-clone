@@ -7,7 +7,8 @@ class CheckoutProducts extends React.Component {
 		super( props );
 
 		this.state = {
-			fullCart: []
+			fullCart: [],
+      total: 0
 		};
 	}
 
@@ -18,6 +19,7 @@ class CheckoutProducts extends React.Component {
     for (var i = 0; i < localStorageRef.length; i++) {
       ids.push(localStorageRef[i].id)
     }
+
 
      getCartItems(ids).then(items => {
       
@@ -32,10 +34,24 @@ class CheckoutProducts extends React.Component {
       this.setState({
         fullCart: items
       })
+      var tot = 0;
+      console.log('itemsss', items)
+      for (var q = 0; q < items.length; q++) {
+        tot += items[q].price * items[q].qty;
+      }
+
+      this.setState({
+        total: tot
+      })
+      console.log('tottt', tot)
     })
+
 	}
 
+
+
     render() {
+
 
         let eachOne = [];
     	if (this.state.fullCart.code !== '22P02') {
@@ -50,7 +66,7 @@ class CheckoutProducts extends React.Component {
           		</div>
           		<div className='chk-singleinfo'>
             		<p>{each.prod_name} - {each.color}</p>
-            		<p>{each.price}</p>
+            		<p>${each.price}</p>
           		</div>
         	</div>
         )
@@ -58,12 +74,30 @@ class CheckoutProducts extends React.Component {
     }
 
         return (
-            <div className="right">
-				{eachOne}
-			</div>
+            <div className="right-chk">
+				      {eachOne}
+              <div className='gift-chk'>
+                <input type="" name="" value="" placeholder='Gift card or discount code' className='giftin-chk'/>
+                <button type="" className='giftbut-chk'>Apply</button>
+              </div>
+              <div className='prices-chk'>
+                <div className='subtotal-chk'>
+                    <p>Subtotal</p>
+                    <p>${this.state.total}</p>
+                </div>
+                <div className='shippingcost-chk'>
+                  <p>Shipping</p>
+                  <p>{this.props.ships}</p>
+                </div>
+              </div>
+              <div className='totalcost-chk'>
+                <p>Total</p>
+                <p>
+                </p>
+              </div>
+			      </div>
         )
     }
-
 
 }
 export default CheckoutProducts;

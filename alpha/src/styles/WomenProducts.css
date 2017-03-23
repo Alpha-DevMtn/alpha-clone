@@ -48,13 +48,13 @@
 }
 
 @media (max-width: 1600px) {
-    .mens-banner {
+    .womens-banner {
         height: 24vw;
     }
 }
 
 @media (max-width: 1340px) {
-    .mens-banner {
+    .womens-banner {
         height: 320px;
     }
 }

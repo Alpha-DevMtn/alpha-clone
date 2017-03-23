@@ -39,13 +39,31 @@ class ProductPage extends Component {
 
     addToCart(id) {
         var cart = this.state.cart;
-        cart.push({
-            id : id,
-            qty : 1
-        });
-        this.setState({cart});
-        localStorage.setItem('my-cart', JSON.stringify(cart));
-        this.showCart();
+        if (cart.length > 0) {
+            for (var i = 0; i < cart.length; i++) {
+                if (cart[i].id === id) {
+                    cart[i].qty += 1;
+                    localStorage.setItem('my-cart', JSON.stringify(cart));
+                    this.showCart();
+                } else if (i === cart.length -1 && cart[i] !== id) {
+                    cart.push({
+                        id : id,
+                        qty : 0
+                    });
+                    this.setState({cart});
+                    localStorage.setItem('my-cart', JSON.stringify(cart));
+                    this.showCart();
+                }
+            }
+        } else {
+            cart.push({
+                id : id,
+                qty : 1
+            });
+            this.setState({cart});
+            localStorage.setItem('my-cart', JSON.stringify(cart));
+            this.showCart();
+        }
     }
 
     render() {
@@ -68,10 +86,9 @@ class ProductPage extends Component {
                     <div className='thepic-pp'>
                         <img src={this.state.item.imageurl} className='imgmain-pp' alt=''/>
                     </div>
-
                     <div className='info-pp'>
                         <p className='title-pp'>{this.state.item.prod_name} - {this.state.item.color}</p>
-                        <h2>{this.state.item.price}</h2>
+                        <h2>${this.state.item.price}</h2>
                         <h3 className='size-pp'>SIZE:</h3>
                         <select className='sizes-pp'>
                             {sizes}

@@ -4,6 +4,7 @@
     width: 100%;
     flex-direction: column;
     display: flex;
+    overflow: auto;
 }
 .none-cs {
     display: none;

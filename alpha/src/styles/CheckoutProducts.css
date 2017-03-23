@@ -1,16 +1,20 @@
-.right {
+.right-chk {
   width: 40%;
-  float: right;
   background-color: #FBFEFB;
   position: relative;
   height: 100vh;
   border-left: solid 1px #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 40px;
+  padding-top: 40px;
 }
 
 .chk-single {
-    width: 100%;
+    width: 400px;
     position: relative;
-    padding: 20px;
+    padding-bottom: 20px;
     display: flex;
     align-items: center;
 }
@@ -44,7 +48,54 @@
     font-size: 12px;
 }
 .chk-singleinfo {
-    width: 250px;
+    width: 300px;
     display: flex;
     justify-content: space-around;
+}
+.gift-chk {
+    width: 400px;
+    height: 50px;
+    padding: 20px 0;
+    border-top: solid 1px #ccc;
+    display: flex;
+    align-items: center;
+}
+.giftin-chk {
+    height: 40px;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    width: 300px;
+    padding-left: 10px;
+}
+.giftbut-chk {
+    height: 40px;
+    margin-left: 10px;
+    width: 80px;
+    background-color: #ccc;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+}
+.prices-chk {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    border-bottom: solid 1px #ccc;
+    border-top: solid 1px #ccc;
+}
+.subtotal-chk {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.shippingcost-chk {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.totalcost-chk {
+    
 }
