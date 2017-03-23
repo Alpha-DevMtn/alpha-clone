@@ -5,15 +5,13 @@ import './../styles/CartSlide.css';
 import { visible, full } from '../redux/showCart';
 import { connect } from 'react-redux';
 
-
 class CartSlide extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      fullCart: [{color:'',qty:0}],
+      fullCart: [],
       theCart: [],
-      quant: 0,
       total: 0
     }
     this.quantityChange = this.quantityChange.bind(this)
@@ -28,7 +26,6 @@ class CartSlide extends Component {
 
   componentWillMount() {
     const localStorageRef = JSON.parse(localStorage.getItem(`my-cart`)) || [];
-    console.log('localStorageRef: ', localStorageRef);
     if(localStorageRef) {
       this.setState({
         theCart: localStorageRef
@@ -40,12 +37,9 @@ class CartSlide extends Component {
       ids.push(localStorageRef[i].id)
     }
 
-    this.setState({
-      fullCart: this.props.cartLogic.fullCart,
-      quant: this.props.cartLogic.quant
-    });
 
     getCartItems(ids).then(items => {
+
       for (var i = 0; i < items.length; i++) {
         for (var j = 0; j < localStorageRef.length; j++) {
           if (items[i].product_id === localStorageRef[j].id) {
@@ -53,16 +47,10 @@ class CartSlide extends Component {
           }
         }
       }
-console.log('items: ', items);
+
       this.setState({
-        fullCart: items,
-        quant: localStorageRef.length
+        fullCart: items
       })
-      this.props.dispatch( full( {
-          fullCart: items,
-          theCart: this.state.theCart,
-          quant: localStorageRef.length
-      }));
     })
 
   }
@@ -74,7 +62,7 @@ console.log('items: ', items);
     var cart = this.state.fullCart;
     var theCart = this.state.theCart;
     var total;
-    // console.log('karl', cart)
+    console.log('karl', cart)
     if (quantity < 1) {
       cart = cart.filter(item => item.product_id !== id);
       theCart = theCart.filter(item => item.id !== id);
@@ -84,12 +72,6 @@ console.log('items: ', items);
       theCart.forEach(item => item.id == id ? item.qty = quantity: null);
 
     }
-const localStorageRef = JSON.parse(localStorage.getItem(`my-cart`)) || [];
-    this.props.dispatch( full( {
-        fullCart: cart,
-        theCart: theCart,
-        quant: localStorageRef.length
-    }));
 
     this.setState({
       fullCart: cart,
@@ -98,31 +80,11 @@ const localStorageRef = JSON.parse(localStorage.getItem(`my-cart`)) || [];
     localStorage.setItem('my-cart', JSON.stringify(theCart));
   }
 
-  componentWillReceiveProps(nextProps) {
-
-    const localStorageRef = JSON.parse(localStorage.getItem(`my-cart`)) || [];
-    this.setState({
-      fullCart: nextProps.cartLogic.fullCart,
-      theCart: nextProps.cartLogic.theCart,
-      quant: nextProps.cartLogic.quant
-    });
-    console.log('nextProps',nextProps.cartLogic);
-    console.log('redux props', this.props.cartLogic);
-    console.log('this.state: ', this.state);
-  }
-
-
-  testButton(){
-    console.log('redux props', this.props.cartLogic);
-    console.log('this.state: ', this.state);
-  }
-
   render() {
     var self = this;
     let eachOne = [];
     if (this.state.fullCart.code !== '22P02') {
-      eachOne = this.props.cartLogic.fullCart.map(function(each, i) {
-        console.log('mapped: ',each);
+      eachOne = this.state.fullCart.map(function(each, i) {
         return (
         <div className='cs-eachprod' key={i}>
           <div className='cs-pic'>
@@ -154,7 +116,6 @@ const localStorageRef = JSON.parse(localStorage.getItem(`my-cart`)) || [];
           </Link>
         </div>
         {console.log('total', this.state.total)}
-        <button onClick={this.testButton.bind(this)}>check store</button>
       </div>
     );
   }
