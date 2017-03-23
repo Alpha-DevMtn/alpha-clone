@@ -1,0 +1,13 @@
+.fWrapper {
+  height: 185px;
+  width: 100%;
+  background-color: #1b1f23;
+  color: #ffffff;
+  border-top: 1px solid #1b1f23;
+}
+.fContainer {
+  margin: 0px auto;
+  padding: 20px 0;
+  position: relative;
+  width: 960px;
+}
