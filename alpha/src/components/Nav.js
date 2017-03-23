@@ -41,7 +41,7 @@ class Nav extends Component {
           </Link>
           <div className="nav-center">
           <div className='dropdown-sto-nav'>
-            <p className="p-drop">STORE<span className="fa fa-angle-down"></span></p>
+            <p className="p-drop">STORE <span className="fa fa-angle-down"></span></p>
             <div className='store-nav'>
               <Link to="/mens"><p className="store-men">MEN</p></Link>
                 <Link to="/womens"><p>WOMEN</p></Link>
@@ -50,7 +50,7 @@ class Nav extends Component {
             </div>
           </div>
           <div className='dropdown-brand-nav'>
-            <p className="p-drop">BRAND<span className="fa fa-angle-down"></span></p>
+            <p className="p-drop">BRAND <span className="fa fa-angle-down"></span></p>
             <div className='brand-nav'>
               <p>ABOUT US</p>
               <p>GIVE BACK</p>
@@ -60,7 +60,7 @@ class Nav extends Component {
             <p className="p-drop">LOOKS</p>
           </div>
           <div className='dropdown-sup-nav'>
-            <p className="p-drop">SUPPORT<span className="fa fa-angle-down"></span></p>
+            <p className="p-drop">SUPPORT <span className="fa fa-angle-down"></span></p>
             <div className='sup-nav'>
               <p>FAQ</p>
               <p>SIZING GUIDE</p>
@@ -86,7 +86,7 @@ class Nav extends Component {
           </div>
           <div className={this.props.cartLogic.display}>
             <div  onClick={ this.hideCart.bind( this ) } className='exitdiv-cs'>
-              <img src={xicon} alt="" className='cs-realexit'/>
+              <button type="" className='cs-realexit'>x</button>
             </div>
             <CartSlide  />
           </div>

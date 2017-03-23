@@ -4,6 +4,7 @@
     width: 100%;
     flex-direction: column;
     display: flex;
+    overflow: auto;
 }
 .none-cs {
     display: none;
@@ -59,6 +60,9 @@
     color: white;
     border-radius: 2px;
 }
+.cs-cont:focus {
+    outline: none;
+}
 .cs-quantbutton {
     border-radius: 50%;
     background-color: #333;
@@ -79,4 +83,7 @@
     color: white;
     border-radius: 2px;
     background-color: #54BFD9;
+}
+.cs-check:focus {
+    outline: none;
 }

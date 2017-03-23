@@ -92,7 +92,7 @@ class CartSlide extends Component {
           </div>
           <div className='cs-info'>
             <p>{each.prod_name} - {each.color}</p>
-            <p>{each.price}</p>
+            <p>${each.price}</p>
             <button type="" onClick={
               () => self.quantityChange(null, each.qty - 1, each.product_id)
             } className='cs-quantbutton'>-</button>
@@ -111,7 +111,7 @@ class CartSlide extends Component {
         {eachOne}
         <div className='cs-buttons'>
           <button type="" onClick={ this.hideCart.bind( this ) } className='cs-cont'>CONTINUE</button>
-          <Link to={'/checkout'}>
+          <Link to={'/customer'}>
             <button type="" className='cs-check'>CHECKOUT</button>
           </Link>
         </div>

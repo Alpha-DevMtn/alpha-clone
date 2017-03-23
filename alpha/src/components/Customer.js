@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 import { gatherInfo } from '../redux/checkout';
 import { Link } from 'react-router';
 import { hashHistory } from "react-router";
+import CheckoutProducts from './CheckoutProducts';
 import paypal from './../images/paypal.png';
 import amazonpay from './../images/amazonpay.png';
 import alphaWhite from './../images/alphaWhite.png';
 import countries from './../services/checkoutService';
 import '../styles/Customer.css';
-
-
 
 class Customer extends React.Component {
 	constructor( props ) {
@@ -20,7 +19,6 @@ class Customer extends React.Component {
 			, lastName: ""
 		};
 	}
-
 
 	handleChange( field, event ) {
 		this.setState( { [ field ]: event.target.value } );
@@ -45,34 +43,51 @@ class Customer extends React.Component {
 		)
 	});
 
-
-
 	render() {
+
 		return (
-			<div>
+			<div className='main-cstmr'>
 			<div className="header">
-				<img src={alphaWhite} alt="ALPHA"/>
+				<img src={alphaWhite} alt="ALPHA" className='header-pic-cstmr'/>
 			</div>
-			<div className="right">right</div>
+			<div className='body-cstmr'>
 			<div className="left">
-				<Link className="pay-links small-text" to="/customer">Customer information <span className="pay-gray">&gt; </span></Link>
-				<Link className="pay-links small-text" to="/shipping">Shipping method <span className="pay-gray">&gt; </span></Link>
-				<Link className="pay-links small-text" to="/payment">Payment method</Link>
-
-				<div className="paypal"><img src={paypal} alt=""/></div>
-				<div className="amazon-pay"><img src={amazonpay} alt=""/></div>
-			<p>or</p>
-				<h2>Customer information</h2>
-				<div className="entry input-8">
-					<p className="small-text">Email (optional)</p>
+				<div className='pmt-opt-cstmr'>
+					<Link className="pay-links small-text" to="/customer">Customer information <span className="pay-gray">&gt; </span></Link>
+					<Link className="pay-links small-text" to="/shipping">Shipping method <span className="pay-gray">&gt; </span></Link>
+					<Link className="pay-links small-text" to="/payment">Payment method</Link>
 				</div>
-				<button type="radio"></button>
-				<p>Save this information for next time</p>
-				<h2>Shipping address</h2>
-				<div className="plain">
-
-					<div className="entry input-4">
-						<p style={this.state.firstName ? {display:'block'} :{display:'none'} } className="small-text">First name</p>
+					<div className='pmt-options'>
+						<div className="paypal">
+							<img src={paypal} alt="" className='paypal-img'/></div>
+							<div className="amazon-pay">
+								<img src={amazonpay} alt="" className='amazon-pay-img'/></div>
+							</div>
+							<div className='cstmr-orr'>
+								<div className='cstmr-hr'>
+								</div>
+								<p>OR</p>
+								<div className='cstmr-hr'>
+								</div>
+							</div>
+							<div className='cstmrsinfo-login'>
+								<p>Customer information</p>
+								<p>Already have an account? 								<span>Log in</span></p>
+							</div>
+							<div className="entry input-8">
+								<p className="small-text">Email</p>
+							</div>
+							<div className='nwsltr-cstmr'>
+								<input type="checkbox" name="" value="" />
+								<p>Subscribe to our newsletter</p>
+							</div>
+							<div className='shp-addr-hdr-cstmr'>
+								<p>Shipping address</p>
+							</div>
+							<div className="plain">
+								<div className='plain-ln1-cstmr'>
+								<div className="entry input-4">
+									<p style={this.state.firstName ? {display:'block'} :{display:'none'} } className="small-text">First name</p>
 						<input
 							onChange={ this.handleChange.bind( this, "firstName" ) }
 							placeholder="First Name"
@@ -80,7 +95,7 @@ class Customer extends React.Component {
 							value={ this.state.firstName }
 						/>
 					</div>
-					<div className="entry input-4">
+					<div className="entry input-4-ln">
 						<p style={this.state.lastName ? {display:'block'} :{display:'none'} } className="small-text">Last name</p>
 						<input
 							onChange={ this.handleChange.bind( this, "lastName" ) }
@@ -89,40 +104,43 @@ class Customer extends React.Component {
 							value={ this.state.lastName }
 						/>
 					</div>
+					</div>
 					<div className="entry input-8">
 						<p className="small-text">Company (optional)</p>
 					</div>
-					<div className="entry input-5">
-						<p className="small-text">Address</p>
-					</div>
-					<div className="entry input-3">
-						<p className="small-text">Apt, suite, etc. (optional)</p>
+					<div className='addr-cstmr-stuff'>
+						<div className="entry input-5">
+							<p className="small-text">Address</p>
+						</div>
+						<div className="entry input-3">
+							<p className="small-text">Apt, suite, etc. (optional)</p>
+						</div>
 					</div>
 					<div className="entry input-8">
 						<p className="small-text">City</p>
 					</div>
-					<div className="entry input-3">
+					<div className='locations-cstmr'>
+						<div className="entry input-3-loc">
 						<p className="small-text">Country</p>
 						<form>
-						<select>
+						<select className='cntryslct-cstmr'>
 							{this.country}
 						</select>
 						</form>
+						</div>
+						<div className="entry input-3-loc">
+							<p className="small-text">State</p>
+						</div>
+						<div className="entry input-2">
+							<p className="small-text">Zip code</p>
+						</div>
 					</div>
-					<div className="entry input-3">
-						<p className="small-text">State</p>
-					</div>
-					<div className="entry input-2">
-						<p className="small-text">Zip code</p>
-					</div>
+					
 					<div className="entry input-8">
 						<p className="small-text">Phone</p>
 					</div>
 				</div>
-				<div className = "plain">
-					<button type="radio"></button>
-					<p>Save this information for next time</p>
-
+				<div className = "bottom-cstmr">
 					<button
 						onClick={ this.gatherInfo.bind( this ) }
 						type="button"
@@ -130,7 +148,9 @@ class Customer extends React.Component {
 					>
 					Continue to shipping method
 					</button>
-					</div>
+				</div>
+				</div>
+				<CheckoutProducts ships='-' />
 				</div>
 			</div>
 		);
