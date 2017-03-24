@@ -1,7 +1,7 @@
 .bord-prod {
-    width: 22%;
-    margin: 0 .8vw;
-    height: 18vw;
+    width: 20%;
+    margin: 20px;
+    height: 350px;
     float: left;
     display: flex;
     flex-direction: column;
@@ -11,29 +11,30 @@
     text-align: center;
     position: relative;
 }
-.bord-prod:hover .plus {
+.bord-prod:hover .plus-prod {
     display: initial;
 }
-.plus{
+.plus-prod{
     position: absolute;
-    height: 25%;
-    right: 15px;
-    bottom: 40%;
+    height: 10%;
+    right: 10px;
+    bottom: 45%;
     display: none;
 }
 .thumbnail-prod {
-    height: 60%;
+    height: 50%;
 }
 
 
-@media (max-width: 1400px) {
+@media (max-width: 1200px) {
     .bord {
-        height: 300px;
+
+        height: 200px;
     }
 }
 
 @media (max-width: 800px) {
     .bord {
-        width: 45%;
+        
     }
 }

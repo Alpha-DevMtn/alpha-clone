@@ -1,56 +1,169 @@
+.main-cstmr {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
 .header {
   background: black;
   color: white;
-  height: 100px;
+  height: 150px;
   width: 100%;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
+.header-pic-cstmr {
+  height: 30%;
+  margin-bottom: 20px;
+}
+.body-cstmr {
+  width: 100%;
+  display: flex;
 
+}
 .left {
   position: relative;
-  /*background-color: red;*/
-  width: 40%;
+  width: 60%;
   height: 100vh;
-  float: right;
-  /*padding: 2.5%;*/
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 40px;
 }
-
-.right {
-  width: 40%;
-  float: right;
-  background-color: grey;
-  position: relative;
-  height: 100vh;
+.pmt-opt-cstmr {
+  display: flex;
+  width: 600px;
+  margin: 10px 0;
 }
+.pmt-options {
+  display: flex;
+  margin: 20px 0;
+  width: 600px;
+}
+.paypal {
+  height: 40px;
+  width: 160px;
+  background-color: #FFD700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  transition: .6s;
+}
+.paypal:hover {
+  background-color: #DAA520;
+  cursor: pointer;
+}
+.paypal-img {
+  width: 35%;
+}
+.amazon-pay {
+  height: 40px;
+  width: 160px;
+  background-color: #F0E68C;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  margin-left: 10px;
+  transition: .6s;
+}
+.amazon-pay:hover {
+  background-color: #FFD700;
+  cursor: pointer;
+}
+.amazon-pay-img {
+  width: 50%;
+}
+.cstmr-orr {
+  width: 600px;
+  display: flex;
+  align-items: center;
+  color: #aaa;
+  font-size: 12px;
+  margin: 10px 0;
+}
+.cstmrsinfo-login {
+  display: flex;
+  width: 600px;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.cstmr-orr p {
+  margin: 0 8px;
 
+}
+.cstmr-hr {
+  width: 282px;
+  height: 1px;
+  background-color: #ccc;
+}
 .entry {
-  border: solid lightgrey thin;
-  border-radius: 10px;
-  /*background-color: yellow;*/
-  height:25px;
-  padding: 2%;
-  margin: 1% 1%;
+  border: solid #ddd thin;
+  border-radius: 5px;
+  height:40px;
   float: left;
 }
-
+.nwsltr-cstmr {
+  display: flex;
+  width: 600px;
+  margin: 10px 0;
+  align-items: center;
+  color: #888;
+}
+.nwsltr-cstmr p {
+  margin-left: 8px;
+  font-size: 14px;
+}
+.shp-addr-hdr-cstmr {
+  width: 600px;
+  display: flex;
+}
+.addr-cstmr-stuff {
+  width: 100%;
+  margin: 10px 0;
+  display: flex;
+}
+.locations-cstmr {
+  display: flex;
+  width: 600px;
+  margin: 10px 0;
+}
+.cntryslct-cstmr {
+  width: 200px;
+  height: 25px;
+  border: none;
+  background-color: white;
+}
 .input-4 {
-  width: 39%;
+  width: 295px;
+  margin-right: 10px;
+}
+.input-4-ln {
+  width: 295px;
 }
 
 .input-8 {
-  width: 85%;
+  width: 600px;
 }
 
 .input-3 {
-  width: 30%;
+  width: 200px;
+}
+.input-3-loc {
+  width: 200px;
+  margin-right: 10px;
 }
 
 .input-2 {
-  width: 20%;
+  width: 180px;
 }
 
 .input-5 {
-  width: 50%;
+  width: 390px;
+  margin-right: 10px;
 }
 
 .small-text {
@@ -65,23 +178,34 @@ input {
 
 .info-button {
   border-color: black;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: black;
   color: white;
-  height:auto;
-  padding: 20px;
-  margin: 10px;
-  clear: both;
-  font-size: 20px;
-  width: 300px;
+  font-size: 14px;
+  width: 280px;
+  height: 50px;
 }
-
+.bottom-cstmr {
+  width: 600px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
 .plain {
-  width: 100%;
+  width: 600px;
   position: relative;
-  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
-
+.plain-ln1-cstmr {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  margin-bottom: 10px;
+  justify-content: flex-start;
+}
 .pay-links {
   color: lightblue;
   text-decoration: none;
@@ -89,4 +213,8 @@ input {
 
 .pay-gray {
   color: lightgrey;
+}
+
+.grey {
+  background-color: grey;
 }

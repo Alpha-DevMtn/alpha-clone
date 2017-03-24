@@ -21,9 +21,9 @@ class MenProducts extends Component {
       
       return (
         <Link to={"/products/" + item.product_id}>
-          <div key={i}>
+          
             <Product {...this.props} i={i} key={i} item={item} />
-          </div>
+          
         </Link>
       )
   })

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { ship } from '../redux/checkout';
 import { Link } from 'react-router';
 import { hashHistory } from "react-router";
+import CheckoutProducts from './CheckoutProducts';
 
 import '../styles/Customer.css';
 
@@ -48,35 +49,108 @@ class Payment extends React.Component {
 			<div className="header">
 				<img src="" alt="ALPHA"/>
 			</div>
-			<div className="right">right</div>
+			<CheckoutProducts />
 			<div className="left">
 				<Link className="pay-links small-text" to="/customer">Customer information <span className="pay-gray">&gt; </span></Link>
 				<Link className="pay-links small-text" to="/shipping">Shipping method <span className="pay-gray">&gt; </span></Link>
 				<Link className="pay-links small-text" to="/payment">Payment method</Link>
 				<h2>Payment</h2>
         <p>{this.props.orderInfo.firstName}</p>
+
 				<div className="plain">
 					<div className="entry input-8">
-						<p className="small-text">Email (optional)</p>
+							<input
+								onChange={ this.handleChange.bind( this, "standard" ) }
+								value="Standard"
+								type="radio"
+								name="shipping"
+
+							/>Credit Card
 					</div>
-					<div className="entry input-4">
-						<p className="small-text">First name</p>
-              <input
-  							onChange={ this.handleChange.bind( this, "shipping" ) }
-  							placeholder="Payment Method"
-  							type="text"
-  							value={ this.state.shipping }
-  						/>
+					<div className="grey">
+						<div className="entry input-8">
+
+								<input
+									onChange={ this.handleChange.bind( this, "shipping" ) }
+									placeholder="Card number"
+									type="text"
+									value={ this.state.shipping }
+								/>
+						</div>
+						<div className="entry input-3">
+
+	              <input
+	  							onChange={ this.handleChange.bind( this, "shipping" ) }
+	  							placeholder="Name on card"
+	  							type="text"
+	  							value={ this.state.shipping }
+	  						/>
+						</div>
+						<div className="entry input-3">
+
+	              <input
+	  							onChange={ this.handleChange.bind( this, "saveInfo" ) }
+	  							placeholder="MM / YY"
+	  							type="text"
+	  							value={ this.state.saveInfo }
+	  						/>
+						</div>
+						<div className="entry input-2">
+
+								<input
+									onChange={ this.handleChange.bind( this, "saveInfo" ) }
+									placeholder="CVV"
+									type="text"
+									value={ this.state.saveInfo }
+								/>
+						</div>
 					</div>
-					<div className="entry input-4">
-						<p className="small-text">Last name</p>
-              <input
-  							onChange={ this.handleChange.bind( this, "saveInfo" ) }
-  							placeholder="Save Info"
-  							type="text"
-  							value={ this.state.saveInfo }
-  						/>
+					<div className="entry input-8">
+							<input
+								onChange={ this.handleChange.bind( this, "standard" ) }
+								value="Standard"
+								type="radio"
+								name="shipping"
+
+							/>PayPal
 					</div>
+					<div className="entry input-8">
+							<input
+								onChange={ this.handleChange.bind( this, "standard" ) }
+								value="Standard"
+								type="radio"
+								name="shipping"
+
+							/>amazon pay
+					</div>
+					<div className="entry input-8">
+							<input
+								onChange={ this.handleChange.bind( this, "standard" ) }
+								value="Standard"
+								type="radio"
+								name="shipping"
+
+							/>Bitcoin
+					</div>
+					<h3>Billing address</h3>
+						<div className="entry input-8">
+								<input
+									onChange={ this.handleChange.bind( this, "standard" ) }
+									value="Standard"
+									type="radio"
+									name="shipping"
+
+								/>Same as shipping address
+						</div>
+						<div className="entry input-8">
+								<input
+									onChange={ this.handleChange.bind( this, "standard" ) }
+									value="Standard"
+									type="radio"
+									name="shipping"
+
+								/>Use a different billing address
+						</div>
 				</div>
 
 				<div className = "plain">
