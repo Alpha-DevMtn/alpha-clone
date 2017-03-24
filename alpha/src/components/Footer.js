@@ -23,7 +23,7 @@ class Footer extends Component {
             <h4 className="fh4">Sizing Guide</h4>
             <h4 className="fh4">About Us</h4>
             <h4 className="fh4">Support</h4>
-            <h4 className="fh4">Privacy Policy</h4>
+            <h4 className="fh444">Privacy Policy</h4>
             <br/>
             <p className="footp">Sign up to get the latest on sales, new releases, and more ...</p>
             <input type="email" name="contact" required pattern="[^ @]*@[^ @]*" placeholder="Enter your email address..." className="femail"/>
