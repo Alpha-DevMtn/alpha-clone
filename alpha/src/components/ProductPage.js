@@ -66,6 +66,12 @@ class ProductPage extends Component {
         }
     }
 
+componentWillReceiveProps(nextProps) {
+  var cart = JSON.parse(localStorage.getItem('my-cart'));
+  cart = cart || [];
+  this.setState({cart});
+}
+
     render() {
         let sizes = [];
         if (this.state.item.sizes) {

@@ -25,7 +25,7 @@ class CartSlide extends Component {
 		}));
 	}
 
-  componentWillMount() {
+  resetStateValues() {
     const localStorageRef = JSON.parse(localStorage.getItem(`my-cart`)) || [];
     if(localStorageRef) {
       this.setState({
@@ -54,6 +54,14 @@ class CartSlide extends Component {
       })
     })
 
+  }
+
+  componentWillMount() {
+    this.resetStateValues();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.resetStateValues();
   }
 
   quantityChange(event, quantity, id) {

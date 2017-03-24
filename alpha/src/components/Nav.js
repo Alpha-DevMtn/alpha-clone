@@ -32,6 +32,15 @@ class Nav extends Component {
 		}));
 	}
 
+  componentWillReceiveProps(nextProps) {
+    var cart = JSON.parse(localStorage.getItem('my-cart'));
+    cart = cart || [];
+    var total = 0;
+    for(var i=0;i<cart.length;i++){
+      total+=cart[i].qty
+    }
+    this.setState({quant: total});
+  }
 
   render(){
     return (
@@ -96,14 +105,10 @@ class Nav extends Component {
   }
 
   componentDidMount() {
-
     const localStorageRef = JSON.parse(localStorage.getItem(`my-cart`)) || [];
     if(localStorageRef) {
-      this.setState({
-        quant: localStorageRef.length
-      });
-    }
 
+    }
   }
 
 }
