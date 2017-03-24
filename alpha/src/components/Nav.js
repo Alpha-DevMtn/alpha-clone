@@ -32,6 +32,7 @@ class Nav extends Component {
 		}));
 	}
 
+
   componentWillReceiveProps(nextProps) {
     var cart = JSON.parse(localStorage.getItem('my-cart'));
     cart = cart || [];
@@ -42,13 +43,23 @@ class Nav extends Component {
     this.setState({quant: total});
   }
 
+  scrollChanges(){
+    var vanilla = document.body.scrollTop;
+     this.navMainClass.style.backgroundColor = vanilla>70?"#FFFFFF":"transparent";
+     this.navCenterClass.style.display = vanilla>70?"flex":"none";
+     this.faCartPlusClass.style.color = vanilla>70?"#000000":"#FFFFFF";
+    //  this.faCartPlusClass.style.color = vanilla>70?"#FFFFFF":"transparent";
+
+  }
+
   render(){
+    {window.onscroll = this.scrollChanges.bind(this)}
     return (
-      <div className="nav-main">
+      <div className="nav-main"  ref={(input)=>{this.navMainClass=input;}}>
           <Link to="/" className='nav-lefty'>
             <img src={alphaWhite} className='nav-alpha-wt' alt=''/>
           </Link>
-          <div className="nav-center">
+          <div className="nav-center" ref={(input)=>{this.navCenterClass=input;}}>
           <div className='dropdown-sto-nav'>
             <p className="p-drop">STORE <span className="fa fa-angle-down"></span></p>
             <div className='store-nav'>
@@ -89,7 +100,7 @@ class Nav extends Component {
           </div>
 
           <div className="cart-button">
-            <span className="fa fa-cart-plus" onClick={ this.showCart.bind( this ) }></span>
+            <span className="fa fa-cart-plus" ref={(input)=>{this.faCartPlusClass=input;}} onClick={ this.showCart.bind( this ) } ></span>
             <span className="empty-nav"></span>
             <span className="fa fa-square-0 cart-count">{this.state.quant}</span>
           </div>

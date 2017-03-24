@@ -7,9 +7,10 @@
   position: fixed;
   display: flex;
   justify-content: space-between;
-  background-color: #FFFFFF;
+  background-color: transparent;
   opacity: .95;
   z-index: 10;
+  transition: 1s;
 }
 
 .nav-lefty {
@@ -20,13 +21,17 @@
   padding-left: 48px;
 }
 
+.fa-cart-plus {
+  color: white;
+}
+
 .nav-alpha-wt {
   height: 28%;
 }
 .nav-center {
   height: 100%;
   width: 420px;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -225,6 +230,7 @@
   font-size: 20px;
   height: 20px;
   border: none;
+  background-color: transparent
 }
 .cart-count {
   color: white;
