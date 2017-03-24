@@ -4,7 +4,7 @@ var session = require('express-session');
 
 var config = require('./config');
 
-const stripe = require('stripe')(config.STRIPE_KEYS.secretKey);
+// const stripe = require('stripe')(config.STRIPE_KEYS.secretKey);
 
 var app = module.exports = express();
 
