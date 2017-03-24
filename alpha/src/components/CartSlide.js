@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { getCartItems } from './../services/productsService';
 import { Link } from 'react-router';
 import './../styles/CartSlide.css';
-import { visible, full } from '../redux/showCart';
+import { visible } from '../redux/showCart';
 import { connect } from 'react-redux';
+
 
 class CartSlide extends Component {
 
@@ -24,7 +25,7 @@ class CartSlide extends Component {
 		}));
 	}
 
-  componentWillMount() {
+  resetStateValues() {
     const localStorageRef = JSON.parse(localStorage.getItem(`my-cart`)) || [];
     if(localStorageRef) {
       this.setState({
@@ -53,6 +54,14 @@ class CartSlide extends Component {
       })
     })
 
+  }
+
+  componentWillMount() {
+    this.resetStateValues();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.resetStateValues();
   }
 
   quantityChange(event, quantity, id) {

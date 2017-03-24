@@ -32,6 +32,15 @@ class Nav extends Component {
 		}));
 	}
 
+  componentWillReceiveProps(nextProps) {
+    var cart = JSON.parse(localStorage.getItem('my-cart'));
+    cart = cart || [];
+    var total = 0;
+    for(var i=0;i<cart.length;i++){
+      total+=cart[i].qty
+    }
+    this.setState({quant: total});
+  }
 
   render(){
     return (
@@ -82,7 +91,7 @@ class Nav extends Component {
           <div className="cart-button">
             <span className="fa fa-cart-plus" onClick={ this.showCart.bind( this ) }></span>
             <span className="empty-nav"></span>
-            <span className="fa fa-square-0 cart-count">{this.props.cartLogic.quant}</span>
+            <span className="fa fa-square-0 cart-count">{this.state.quant}</span>
           </div>
           <div className={this.props.cartLogic.display}>
             <div  onClick={ this.hideCart.bind( this ) } className='exitdiv-cs'>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { getProduct } from './../services/productsService';
 import './../styles/ProductPage.css';
-import { visible, cartQuantity } from '../redux/showCart';
+import { visible } from '../redux/showCart';
 import { connect } from 'react-redux';
 
 class ProductPage extends Component {
@@ -66,17 +66,23 @@ class ProductPage extends Component {
         }
     }
 
+componentWillReceiveProps(nextProps) {
+  var cart = JSON.parse(localStorage.getItem('my-cart'));
+  cart = cart || [];
+  this.setState({cart});
+}
+
     render() {
         let sizes = [];
         if (this.state.item.sizes) {
-            sizes = this.state.item.sizes.map(function(size, i) {
-            return (<option key={i} value={size}>{size}</option>)
+            sizes = this.state.item.sizes.map(function(size) {
+            return (<option value={size}>{size}</option>)
             })
         }
         let info = [];
         if (this.state.item.info) {
-            info = this.state.item.info.map(function(info, i) {
-                return(<p key={i}>{info}</p>)
+            info = this.state.item.info.map(function(info) {
+                return(<p>{info}</p>)
             })
         }
 
