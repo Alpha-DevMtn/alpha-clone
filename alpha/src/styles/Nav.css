@@ -17,7 +17,6 @@
   height: 100%;
   display: flex;
   align-items: center;
-
   padding-left: 48px;
 }
 
@@ -26,7 +25,12 @@
 }
 
 .nav-alpha-wt {
-  height: 28%;
+  height: 40%;
+  position: absolute;
+  transition: .5s;
+}
+.nav-white-logo {
+  opacity: 1;
 }
 .nav-center {
   height: 100%;
@@ -227,11 +231,12 @@
 }
 .currency {
   font-family: font130145;
-  color: #707070;
+  color: #404040;
   font-size: 20px;
   height: 20px;
   border: none;
   background-color: transparent
+
 }
 .cart-count {
   color: white;
