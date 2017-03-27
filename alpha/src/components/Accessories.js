@@ -9,7 +9,9 @@ class Accessories extends Component {
   render() {
 
     return(
-      
+
     )
   }
 }
+
+export default Accessories

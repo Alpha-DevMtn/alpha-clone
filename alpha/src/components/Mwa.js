@@ -31,7 +31,7 @@ class Mwa extends Component {
           <div className="accessories">
             <h1 className="mwa-h1">ACCESSORIES</h1>
               <div className="changing">
-                <h2 className="mwa-h2">WOMEN</h2>
+                <h2 className="mwa-h2">ACCESSORIES</h2>
                 <div className="useless"></div>
                 <p className="mwa-p">Shop Now</p>
               </div>
