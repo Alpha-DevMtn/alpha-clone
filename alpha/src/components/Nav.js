@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import '../styles/Nav.css';
 import alphaWhite from './../images/alphablack.png';
+import whiteLogo from './../images/alphaWhite.png';
 import CartSlide from './CartSlide';
 import xicon from './../images/x-icon.png';
 import { connect } from 'react-redux';
@@ -32,6 +33,7 @@ class Nav extends Component {
 		}));
 	}
 
+
   componentWillReceiveProps(nextProps) {
     var cart = JSON.parse(localStorage.getItem('my-cart'));
     cart = cart || [];
@@ -42,13 +44,28 @@ class Nav extends Component {
     this.setState({quant: total});
   }
 
+  scrollChanges(){
+    var vanilla = document.body.scrollTop;
+     this.navMainClass.style.backgroundColor = vanilla>70?"#FFFFFF":"transparent";
+     this.navCenterClass.style.display = vanilla>70?"flex":"none";
+     this.faCartPlusClass.style.color = vanilla>70?"#000000":"#FFFFFF";
+     this.navWhiteLogoClass.style.opacity = vanilla>70?0:1;
+     this.navWhiteLogoClass.style.height = vanilla>70?"28%":"40%";
+     this.navBlackLogoClass.style.height = vanilla>70?"28%":"40%";
+     this.currencyClass.style.color = vanilla>70?"#707070":"#404040";
+
+
+
+  }
+
   render(){
+    {window.onscroll = this.scrollChanges.bind(this)}
     return (
-      <div className="nav-main">
+      <div className="nav-main"  ref={(input)=>{this.navMainClass=input;}}>
           <Link to="/" className='nav-lefty'>
-            <img src={alphaWhite} className='nav-alpha-wt' alt=''/>
+            <img src={alphaWhite} className='nav-alpha-wt' ref={(input)=>{this.navBlackLogoClass=input;}} alt=''/><img src={whiteLogo} className='nav-alpha-wt nav-white-logo' ref={(input)=>{this.navWhiteLogoClass=input;}} alt=''/>
           </Link>
-          <div className="nav-center">
+          <div className="nav-center" ref={(input)=>{this.navCenterClass=input;}}>
           <div className='dropdown-sto-nav'>
             <p className="p-drop">STORE <span className="fa fa-angle-down"></span></p>
             <div className='store-nav'>
@@ -77,8 +94,8 @@ class Nav extends Component {
           </div>
         </div>
         <div className="nav-right">
-          <div className="currency-wrap">
-            <select className="currency">
+          <div className="currency-wrap" >
+            <select className="currency" ref={(input)=>{this.currencyClass=input;}}>
               <option value="">USD</option>
               <option value="">CAD</option>
               <option value="">AUD</option>
@@ -89,7 +106,7 @@ class Nav extends Component {
           </div>
 
           <div className="cart-button">
-            <span className="fa fa-cart-plus" onClick={ this.showCart.bind( this ) }></span>
+            <span className="fa fa-cart-plus" ref={(input)=>{this.faCartPlusClass=input;}} onClick={ this.showCart.bind( this ) } ></span>
             <span className="empty-nav"></span>
             <span className="fa fa-square-0 cart-count">{this.state.quant}</span>
           </div>
