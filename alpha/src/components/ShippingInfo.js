@@ -4,7 +4,8 @@ import { ship } from '../redux/checkout';
 import { Link } from 'react-router';
 import { hashHistory } from "react-router";
 import CheckoutProducts from './CheckoutProducts';
-import '../styles/Customer.css';
+import '../styles/ShippingInfo.css';
+import AlphaWt from './../images/alphaWhite.png';
 
 	let countries = ["usa","canada","mexico"];
 
@@ -43,23 +44,21 @@ class ShippingInfo extends React.Component {
 
 	render() {
 		return (
-			<div>
-			<div className="header">
-				<img src="" alt="ALPHA"/>
+			<div className='shippinginfo-main'>
+			<div className="header-si">
+				<img src={AlphaWt} alt="ALPHA" className='alphaimg-si'/>
 			</div>
-			<CheckoutProducts />
-			<div className="left">
-				<Link className="pay-links small-text" to="/customer">Customer information <span className="pay-gray">&gt; </span></Link>
-				<Link className="pay-links small-text" to="/shipping">Shipping method <span className="pay-gray">&gt; </span></Link>
-				<Link className="pay-links small-text" to="/payment">Payment method</Link>
-				<p>Shipping: {this.state.shipping}</p>
-				<div className="plain">
-					<div className="entry input-8">
-						<p>Shipping address</p>
-						<p>{this.props.orderInfo.firstName}</p>
-					</div>
-
-					<br/><br/><br/><br/>
+			<div className='body-si'>
+				<div className="left-si">
+					<Link className="pay-links small-text" to="/customer">Customer information <span className="pay-gray">&gt; </span></Link>
+					<Link className="pay-links small-text" to="/shipping">Shipping method <span className="pay-gray">&gt; </span></Link>
+					<Link className="pay-links small-text" to="/payment">Payment method</Link>
+					<p>Shipping: {this.state.shipping}</p>
+					<div className="plain">
+						<div className="entry input-8">
+							<p>Shipping address</p>
+							<p>{this.props.orderInfo.firstName}</p>
+						</div>
 					<h2>Shipping method</h2>
 					<form>
 					<div className="entry input-8">
@@ -94,6 +93,8 @@ class ShippingInfo extends React.Component {
 					</button>
 					<Link to="/shipping"><p>&lt; Return to customer information</p></Link>
 					</div>
+				</div>
+				<CheckoutProducts />
 				</div>
 			</div>
 

@@ -1,0 +1,23 @@
+.shippinginfo-main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.header-si {
+    height: 150px;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.alphaimg-si {
+    height: 40px;
+    margin-bottom: 30px;
+}
+.left-si {
+    width: 50%;
+}
+.body-si {
+    display: flex;
+}
