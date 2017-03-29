@@ -4,8 +4,9 @@ import { ship } from '../redux/checkout';
 import { Link } from 'react-router';
 import { hashHistory } from "react-router";
 import CheckoutProducts from './CheckoutProducts';
+import AlphaWhite from './../images/alphaWhite.png';
 
-import '../styles/Customer.css';
+import '../styles/Payment.css';
 
 	let countries = ["usa","canada","mexico"];
 
@@ -45,20 +46,23 @@ class Payment extends React.Component {
 
 	render() {
 		return (
-			<div>
-			<div className="header">
-				<img src="" alt="ALPHA"/>
-			</div>
-			<CheckoutProducts />
-			<div className="left">
-				<Link className="pay-links small-text" to="/customer">Customer information <span className="pay-gray">&gt; </span></Link>
-				<Link className="pay-links small-text" to="/shipping">Shipping method <span className="pay-gray">&gt; </span></Link>
-				<Link className="pay-links small-text" to="/payment">Payment method</Link>
-				<h2>Payment</h2>
-        <p>{this.props.orderInfo.firstName}</p>
-
-				<div className="plain">
-					<div className="entry input-8">
+			<div className='pmt-main'>
+				<div className="header-pmt">
+					<img src={AlphaWhite} alt="ALPHA" className='alpha-wht-pmt' />
+				</div>
+				<div className='mb-pmt'>
+				<div className="left-pmt">
+					<div className='change-pg-pmt'>
+						<Link className="pay-links small-text" to="/customer">Customer information <span className="pay-gray">&gt; </span></Link>
+						<Link className="pay-links small-text" to="/shipping">Shipping method <span className="pay-gray">&gt; </span></Link>
+						<Link className="pay-links small-text" to="/payment">Payment method</Link>
+					</div>
+					<div className='pmt-mthd-head'>
+						<p className='pmt-mthd-txt'>Payment method</p>
+						<p className='all-trns-pmt-txt'>All transactions are secure and encrypted.</p>
+					</div>
+					<div className='cc-info-pmt'>
+						<div className='cc-select-pmt'>
 							<input
 								onChange={ this.handleChange.bind( this, "standard" ) }
 								value="Standard"
@@ -66,46 +70,22 @@ class Payment extends React.Component {
 								name="shipping"
 
 							/>Credit Card
-					</div>
-					<div className="grey">
-						<div className="entry input-8">
-
-								<input
-									onChange={ this.handleChange.bind( this, "shipping" ) }
-									placeholder="Card number"
-									type="text"
-									value={ this.state.shipping }
-								/>
 						</div>
-						<div className="entry input-3">
-
-	              <input
-	  							onChange={ this.handleChange.bind( this, "shipping" ) }
-	  							placeholder="Name on card"
-	  							type="text"
-	  							value={ this.state.shipping }
-	  						/>
+						<div className='crd-info-hddn-pmt'>
+							<input onChange={ this.handleChange.bind( this, "shipping" ) } placeholder=" Card number" type="text" value={ this.state.shipping } className='crd-num-pmt'/>
+							<div className='noc-cc-pmt'>
+								<input onChange={ this.handleChange.bind( this, "shipping" ) } placeholder=" Name on card"
+								type="text" value={ this.state.shipping }
+								className='noc-pmt'/>
+								<input onChange={ this.handleChange.bind( this, "saveInfo" ) }
+									placeholder=" MM / YY"
+									type="text" value={ this.state.saveInfo }
+								className='exp-dt-pmt'/>
+								<input onChange={ this.handleChange.bind( this, "saveInfo" ) }
+	placeholder=" CVV" type="text" value={ this.state.saveInfo } className='sec-pmt'/>
+							</div>
 						</div>
-						<div className="entry input-3">
-
-	              <input
-	  							onChange={ this.handleChange.bind( this, "saveInfo" ) }
-	  							placeholder="MM / YY"
-	  							type="text"
-	  							value={ this.state.saveInfo }
-	  						/>
-						</div>
-						<div className="entry input-2">
-
-								<input
-									onChange={ this.handleChange.bind( this, "saveInfo" ) }
-									placeholder="CVV"
-									type="text"
-									value={ this.state.saveInfo }
-								/>
-						</div>
-					</div>
-					<div className="entry input-8">
+						<div className='pp-select-pmt'>
 							<input
 								onChange={ this.handleChange.bind( this, "standard" ) }
 								value="Standard"
@@ -113,8 +93,8 @@ class Payment extends React.Component {
 								name="shipping"
 
 							/>PayPal
-					</div>
-					<div className="entry input-8">
+						</div>
+						<div className='ap-select-pmt'>
 							<input
 								onChange={ this.handleChange.bind( this, "standard" ) }
 								value="Standard"
@@ -122,8 +102,8 @@ class Payment extends React.Component {
 								name="shipping"
 
 							/>amazon pay
-					</div>
-					<div className="entry input-8">
+						</div>
+						<div className='bc-select-pmt'>
 							<input
 								onChange={ this.handleChange.bind( this, "standard" ) }
 								value="Standard"
@@ -131,7 +111,9 @@ class Payment extends React.Component {
 								name="shipping"
 
 							/>Bitcoin
+						</div>
 					</div>
+					<div className="plain">
 					<h3>Billing address</h3>
 						<div className="entry input-8">
 								<input
@@ -143,28 +125,23 @@ class Payment extends React.Component {
 								/>Same as shipping address
 						</div>
 						<div className="entry input-8">
-								<input
-									onChange={ this.handleChange.bind( this, "standard" ) }
+							<input onChange={ this.handleChange.bind( this, "standard" ) }
 									value="Standard"
 									type="radio"
-									name="shipping"
-
-								/>Use a different billing address
+									name="shipping"/>
+									Use a different billing address
 						</div>
-				</div>
-
-				<div className = "plain">
-					<button type="radio"></button>
-					<p>Save this information for next time</p>
-
-            <button
-							onClick={ this.ship.bind( this ) }
-							type="submit"
-						>
-					Continue to payment method
-					</button>
-					<Link to="/shipping"><p>&lt; Return to shipping method</p></Link>
 					</div>
+					<div className = "plain">
+						<button type="radio"></button>
+						<p>Save this information for next time</p>
+            			<button onClick={ this.ship.bind( this ) } type="submit">
+						Complete order
+						</button>
+						<Link to="/shipping"><p>&lt; Return to shipping method</p></Link>
+					</div>
+				</div>
+				<CheckoutProducts />
 				</div>
 			</div>
 		);

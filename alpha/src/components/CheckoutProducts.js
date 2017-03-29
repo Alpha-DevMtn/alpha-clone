@@ -41,7 +41,7 @@ class CheckoutProducts extends React.Component {
       }
 
       this.setState({
-        total: tot
+        total: tot.toFixed(2)
       })
       console.log('tottt', tot)
     })
