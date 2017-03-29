@@ -2,10 +2,19 @@ const CUSTOMER = "checkout/CUSTOMER";
 const SHIPPING = "checkout/SHIPPING";
 
 const initialState = {
-  firstName: ""
-, lastName: ""
-, shipping: ""
-, saveInfo: ""
+  email: ""
+  , firstName: ""
+  , lastName: ""
+  , company: ""
+  , address: ""
+  , apt: ""
+  , city: ""
+  , country: ""
+  , usstate: ""
+  , zip: ""
+  , phone: ""
+  , shipping: ""
+  , saveInfo: ""
 }
 
 export default function reducer(state=initialState, action) {
