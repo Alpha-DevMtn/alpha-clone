@@ -1,2 +1,2 @@
 select * from products
-where gender is men and type is Hoodies
+where product.gender is men and product.type is hoodies

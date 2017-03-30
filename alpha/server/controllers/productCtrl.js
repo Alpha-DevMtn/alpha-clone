@@ -31,21 +31,11 @@ module.exports = {
         db.product.read_products_men([], function(err, results) {
             if (err) {
                 console.error(err)
-                res.send(err)
+                return res.send(err)
             } else {
-                res.send(results)
+              return res.send(results)
             }
         })
-    },
-    getMensHoodies: function(req, res) {
-      db.product.read_mens_hoodies([req.param.hoodies],
-      function(err, results) {
-        if (err) {
-          console.error(err)
-          res.send(err)
-        }
-        return res.send(results)
-      })
     },
     getWomensProducts: function(req, res) {
         db.product.read_products_women([], function(err, results) {

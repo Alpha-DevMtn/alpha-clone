@@ -11,31 +11,31 @@ class MenProducts extends Component {
     super();
 
     this.state = {
-      maleProducts: []
+      maleProducts: [],
     }
   }
 
   render() {
 
     const maleProducts = this.state.maleProducts.map((item, i) => {
-      
+
       return (
         <Link to={"/products/" + item.product_id}>
-          
+
             <Product {...this.props} i={i} key={i} item={item} />
-          
+
         </Link>
       )
   })
 
     return (
       <div className='main-men'>
-        <div className='mens-banner'> 
+        <div className='mens-banner'>
           <p>Mens</p>
         </div>
         <div className='men-the-filters'>
           <h4>FILTER BY: </h4>
-          <select className='men-selection1'>
+          <select onChange={this.hoodieSelected} value={this.state.value} className='men-selection1'>
             <option value="">ALL MENS</option>
             <option value="">Bottoms</option>
             <option value="">Hats</option>
