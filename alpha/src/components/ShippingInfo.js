@@ -43,6 +43,7 @@ class ShippingInfo extends React.Component {
 
 
 	render() {
+		console.log('this.props.orderInfo: ', this.props.orderInfo);
 		return (
 			<div className='shippinginfo-main'>
 			<div className="header-si">

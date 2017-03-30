@@ -21,10 +21,20 @@ export default function reducer(state=initialState, action) {
   switch(action.type) {
 
     case CUSTOMER:
+    console.log('action.customerInfo: ', action.customerInfo);
       return {
         ...state,
-        firstName: action.customerInfo.firstName
+      email: action.customerInfo.email
+      ,  firstName: action.customerInfo.firstName
       , lastName: action.customerInfo.lastName
+      , company: action.customerInfo.company
+      , address: action.customerInfo.address
+      , apt: action.customerInfo.apt
+      , city: action.customerInfo.city
+      , country: action.customerInfo.country
+      , usstate: action.customerInfo.usstate
+      , zip: action.customerInfo.zip
+      , phone: action.customerInfo.phone
       };
 
     case SHIPPING:

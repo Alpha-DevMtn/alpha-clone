@@ -30,14 +30,24 @@ class Customer extends React.Component {
 	}
 
 	handleChange( field, event ) {
-		this.setState( { [ field ]: event.target.value } );
+		console.log('event: ', event.target);
+		this.setState( {...this.state, [ field ]: event.target.value } );
 	}
 
 	gatherInfo( event ) {
 		event.preventDefault();
 		this.props.dispatch( gatherInfo( {
-			  firstName: this.state.firstName
+			email: this.state.email
+			,  firstName: this.state.firstName
 			, lastName: this.state.lastName
+			, company: this.state.company
+			, address: this.state.address
+			, apt: this.state.apt
+			, city: this.state.city
+			, country: this.state.country
+			, usstate: this.state.usstate
+			, zip: this.state.zip
+			, phone: this.state.phone
 		} ) );
 		hashHistory.push( "/shipping" );
 		console.log('props: ', this.props);
@@ -48,7 +58,7 @@ class Customer extends React.Component {
 
 	country = countries.map((item, i) => {
 		return (
-			<option key={i} value="{item}">{item}</option>
+			<option key={i} value={item} >{item}</option>
 		)
 	});
 
@@ -84,7 +94,13 @@ class Customer extends React.Component {
 								<p>Already have an account? 								<span>Log in</span></p>
 							</div>
 							<div className="entry input-8">
-								<p className="small-text">Email</p>
+									<p style={this.state.email ? {display:'block'} :{display:'none'} } className="small-text">Email</p>
+									<input
+										onChange={ this.handleChange.bind( this, "email" ) }
+										placeholder="Email"
+										type="text"
+										value={ this.state.email }
+									/>
 							</div>
 							<div className='nwsltr-cstmr'>
 								<input type="checkbox" name="" value="" />
@@ -156,8 +172,8 @@ class Customer extends React.Component {
 					<div className='locations-cstmr'>
 						<div className="entry input-3-loc">
 						<p className="small-text">Country</p>
-						<form>
-						<select className='cntryslct-cstmr'>
+						<form >
+						<select className='cntryslct-cstmr' onChange={ this.handleChange.bind( this, "country" ) }>
 							{this.country}
 						</select>
 						</form>
