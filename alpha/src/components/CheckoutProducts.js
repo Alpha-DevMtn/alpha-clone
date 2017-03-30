@@ -1,6 +1,8 @@
 import React from 'react';
 import { getCartItems } from './../services/productsService';
 import './../styles/CheckoutProducts.css';
+import { connect } from 'react-redux';
+import { check } from '../redux/checkout';
 
 class CheckoutProducts extends React.Component {
     constructor( props ) {
@@ -23,7 +25,7 @@ class CheckoutProducts extends React.Component {
 
 
      getCartItems(ids).then(items => {
-      
+
       for (var i = 0; i < items.length; i++) {
         for (var j = 0; j < localStorageRef.length; j++) {
           if (items[i].product_id === localStorageRef[j].id) {
@@ -31,7 +33,7 @@ class CheckoutProducts extends React.Component {
           }
         }
       }
-      
+
       this.setState({
         fullCart: items
       })
@@ -57,6 +59,10 @@ class CheckoutProducts extends React.Component {
         total: everything.toFixed(2)
       })
       }
+      this.props.dispatch( check( {
+        totalPrice: this.state.total
+      } ) );
+
       console.log('tottt', tot)
     })
 
@@ -84,7 +90,7 @@ class CheckoutProducts extends React.Component {
           		</div>
         	</div>
         )
-      }) 
+      })
     }
 
         return (
@@ -113,4 +119,5 @@ class CheckoutProducts extends React.Component {
     }
 
 }
-export default CheckoutProducts;
+
+export default connect(state => ( { orderInfo: state.checkout } ) )( CheckoutProducts );

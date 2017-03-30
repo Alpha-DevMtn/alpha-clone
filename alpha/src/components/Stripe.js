@@ -1,13 +1,15 @@
 import React from 'react';
 // var ReactScriptLoaderMixin = require('react-script-loader').ReactScriptLoaderMixin;
 import {ReactScriptLoaderMixin} from 'react-script-loader';
+import { connect } from 'react-redux';
+import '../redux/checkout';
 
+class PaymentForm extends React.Component {
 
-var PaymentForm = React.createClass({
-  mixins: [ ReactScriptLoaderMixin ],
+  constructor( props ) {
+    super(props);
 
-  getInitialState: function() {
-    return {
+    this.state = {
       stripeLoading: true,
       stripeLoadingError: false,
       submitDisabled: false,
@@ -15,45 +17,55 @@ var PaymentForm = React.createClass({
       paymentComplete: false,
       token: null
     };
-  },
+    mixins: [ ReactScriptLoaderMixin ]
 
-  getScriptURL: function() {
+
+    this.onScriptLoaded = this.onScriptLoaded.bind(this);
+    this.onScriptError = this.onScriptError.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+
+  }
+
+  getScriptURL() {
     return 'https://js.stripe.com/v2/';
-  },
+  }
 
-  onScriptLoaded: function() {
+  onScriptLoaded() {
     if (!PaymentForm.getStripeToken) {
       // Put your publishable key here
-      Stripe.setPublishableKey('pk_test_OEbrxRvG9isWqPAuwiSijp0Y');
+      window.Stripe.setPublishableKey('pk_test_OEbrxRvG9isWqPAuwiSijp0Y');
       this.setState({ stripeLoading: false, stripeLoadingError: false });
     }
-  },
+  }
 
-  onScriptError: function() {
+  onScriptError() {
     this.setState({ stripeLoading: false, stripeLoadingError: true });
-  },
+  }
 
-  onSubmit: function(event) {
+  onSubmit(event) {
     var self = this;
     event.preventDefault();
     this.setState({ submitDisabled: true, paymentError: null });
     // send form here
-    Stripe.createToken(event.target, function(status, response) {
+    window.Stripe.createToken(event.target, function(status, response) {
       if (response.error) {
         self.setState({ paymentError: response.error.message, submitDisabled: false });
+        console.log('bad response: ', response);
       }
       else {
         self.setState({ paymentComplete: true, submitDisabled: false, token: response.id });
         // make request to your server here!
+        console.log('good response: ', response);
+        console.log("stripe gets props:", this)
       }
     });
-  },
+  }
 
   componentWillMount() {
     this.onScriptLoaded()
-  },
+  }
 
-  render: function() {
+  render() {
     if (this.state.stripeLoading) {
       return <div>Loading</div>;
     }
@@ -74,6 +86,6 @@ var PaymentForm = React.createClass({
       </form>);
     }
   }
-});
+};
 
-module.exports = PaymentForm;
+export default connect(state => ( { orderInfo: state.checkout } ) )( PaymentForm );

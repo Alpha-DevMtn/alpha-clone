@@ -1,21 +1,42 @@
 const CUSTOMER = "checkout/CUSTOMER";
 const SHIPPING = "checkout/SHIPPING";
+const CHECK = "checkout/CHECK";
 
 const initialState = {
-  firstName: ""
-, lastName: ""
-, shipping: ""
-, saveInfo: ""
+  email: ""
+  , firstName: ""
+  , lastName: ""
+  , company: ""
+  , address: ""
+  , apt: ""
+  , city: ""
+  , country: ""
+  , usstate: ""
+  , zip: ""
+  , phone: ""
+  , shipping: ""
+  , saveInfo: ""
+  , totalPrice: ""
 }
 
 export default function reducer(state=initialState, action) {
   switch(action.type) {
 
     case CUSTOMER:
+    console.log('action.customerInfo: ', action.customerInfo);
       return {
         ...state,
-        firstName: action.customerInfo.firstName
+      email: action.customerInfo.email
+      ,  firstName: action.customerInfo.firstName
       , lastName: action.customerInfo.lastName
+      , company: action.customerInfo.company
+      , address: action.customerInfo.address
+      , apt: action.customerInfo.apt
+      , city: action.customerInfo.city
+      , country: action.customerInfo.country
+      , usstate: action.customerInfo.usstate
+      , zip: action.customerInfo.zip
+      , phone: action.customerInfo.phone
       };
 
     case SHIPPING:
@@ -23,6 +44,12 @@ export default function reducer(state=initialState, action) {
       ...state,
       shipping: action.shippingInfo.shipping
     , saveInfo: action.shippingInfo.saveInfo
+    };
+
+    case CHECK:
+    return {
+      ...state,
+      totalPrice: action.checkoutTotal.totalPrice
     };
 
     default:
@@ -36,4 +63,8 @@ export function gatherInfo( customerInfo ) {
 
 export function ship( shippingInfo ) {
     return { type: SHIPPING, shippingInfo };
+}
+
+export function check( checkoutTotal ) {
+    return { type: CHECK, checkoutTotal };
 }
