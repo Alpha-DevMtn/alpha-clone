@@ -15,20 +15,39 @@ class Customer extends React.Component {
 		super( props );
 
 		this.state = {
-			firstName: ""
+			email: ""
+			, firstName: ""
 			, lastName: ""
+			, company: ""
+			, address: ""
+			, apt: ""
+			, city: ""
+			, country: ""
+			, usstate: ""
+			, zip: ""
+			, phone: ""
 		};
 	}
 
 	handleChange( field, event ) {
-		this.setState( { [ field ]: event.target.value } );
+		console.log('event: ', event.target);
+		this.setState( {...this.state, [ field ]: event.target.value } );
 	}
 
 	gatherInfo( event ) {
 		event.preventDefault();
 		this.props.dispatch( gatherInfo( {
-			  firstName: this.state.firstName
+			email: this.state.email
+			,  firstName: this.state.firstName
 			, lastName: this.state.lastName
+			, company: this.state.company
+			, address: this.state.address
+			, apt: this.state.apt
+			, city: this.state.city
+			, country: this.state.country
+			, usstate: this.state.usstate
+			, zip: this.state.zip
+			, phone: this.state.phone
 		} ) );
 		hashHistory.push( "/shipping" );
 		console.log('props: ', this.props);
@@ -39,7 +58,7 @@ class Customer extends React.Component {
 
 	country = countries.map((item, i) => {
 		return (
-			<option key={i} value="{item}">{item}</option>
+			<option key={i} value={item} >{item}</option>
 		)
 	});
 
@@ -75,7 +94,13 @@ class Customer extends React.Component {
 								<p>Already have an account? 								<span>Log in</span></p>
 							</div>
 							<div className="entry input-8">
-								<p className="small-text">Email</p>
+									<p style={this.state.email ? {display:'block'} :{display:'none'} } className="small-text">Email</p>
+									<input
+										onChange={ this.handleChange.bind( this, "email" ) }
+										placeholder="Email"
+										type="text"
+										value={ this.state.email }
+									/>
 							</div>
 							<div className='nwsltr-cstmr'>
 								<input type="checkbox" name="" value="" />
@@ -88,56 +113,99 @@ class Customer extends React.Component {
 								<div className='plain-ln1-cstmr'>
 								<div className="entry input-4">
 									<p style={this.state.firstName ? {display:'block'} :{display:'none'} } className="small-text">First name</p>
-						<input
-							onChange={ this.handleChange.bind( this, "firstName" ) }
-							placeholder="First Name"
-							type="text"
-							value={ this.state.firstName }
-						/>
-					</div>
-					<div className="entry input-4-ln">
-						<p style={this.state.lastName ? {display:'block'} :{display:'none'} } className="small-text">Last name</p>
-						<input
-							onChange={ this.handleChange.bind( this, "lastName" ) }
-							placeholder="Last Name"
-							type="text"
-							value={ this.state.lastName }
-						/>
-					</div>
+									<input
+										onChange={ this.handleChange.bind( this, "firstName" ) }
+										placeholder="First Name"
+										type="text"
+										value={ this.state.firstName }
+									/>
+								</div>
+								<div className="entry input-4-ln">
+									<p style={this.state.lastName ? {display:'block'} :{display:'none'} } className="small-text">Last name</p>
+									<input
+										onChange={ this.handleChange.bind( this, "lastName" ) }
+										placeholder="Last Name"
+										type="text"
+										value={ this.state.lastName }
+									/>
+								</div>
 					</div>
 					<div className="entry input-8">
-						<p className="small-text">Company (optional)</p>
+							<p className="small-text" style={this.state.company ? {display:'block'} :{display:'none'} } className="small-text">Company (optional)</p>
+							<input
+								onChange={ this.handleChange.bind( this, "company" ) }
+								placeholder="Company"
+								type="text"
+								value={ this.state.company }
+							/>
 					</div>
 					<div className='addr-cstmr-stuff'>
 						<div className="entry input-5">
-							<p className="small-text">Address</p>
+							<p className="small-text" style={this.state.address ? {display:'block'} :{display:'none'} } className="small-text">Address</p>
+							<input
+								onChange={ this.handleChange.bind( this, "address" ) }
+								placeholder="Address"
+								type="text"
+								value={ this.state.address }
+							/>
 						</div>
 						<div className="entry input-3">
-							<p className="small-text">Apt, suite, etc. (optional)</p>
+							<p className="small-text" style={this.state.apt ? {display:'block'} :{display:'none'} } className="small-text">Apt, suite, etc. (optional)</p>
+							<input
+								onChange={ this.handleChange.bind( this, "apt" ) }
+								placeholder="Apt, suite, etc."
+								type="text"
+								value={ this.state.apt }
+							/>
 						</div>
 					</div>
 					<div className="entry input-8">
 						<p className="small-text">City</p>
+						<p className="small-text" style={this.state.city ? {display:'block'} :{display:'none'} } className="small-text">City</p>
+						<input
+							onChange={ this.handleChange.bind( this, "city" ) }
+							placeholder="City"
+							type="text"
+							value={ this.state.city }
+						/>
 					</div>
 					<div className='locations-cstmr'>
 						<div className="entry input-3-loc">
 						<p className="small-text">Country</p>
-						<form>
-						<select className='cntryslct-cstmr'>
+						<form >
+						<select className='cntryslct-cstmr' onChange={ this.handleChange.bind( this, "country" ) }>
 							{this.country}
 						</select>
 						</form>
 						</div>
 						<div className="entry input-3-loc">
-							<p className="small-text">State</p>
+							<p className="small-text" style={this.state.usstate ? {display:'block'} :{display:'none'} } className="small-text">State</p>
+							<input
+								onChange={ this.handleChange.bind( this, "usstate" ) }
+								placeholder="State"
+								type="text"
+								value={ this.state.usstate }
+							/>
 						</div>
 						<div className="entry input-2">
-							<p className="small-text">Zip code</p>
+							<p className="small-text" style={this.state.zip ? {display:'block'} :{display:'none'} } className="small-text">Zip code</p>
+							<input
+								onChange={ this.handleChange.bind( this, "zip" ) }
+								placeholder="Zip code"
+								type="text"
+								value={ this.state.zip }
+							/>
 						</div>
 					</div>
-					
+
 					<div className="entry input-8">
-						<p className="small-text">Phone</p>
+						<p className="small-text" style={this.state.phone ? {display:'block'} :{display:'none'} } className="small-text">Phone</p>
+						<input
+							onChange={ this.handleChange.bind( this, "phone" ) }
+							placeholder="Phone"
+							type="text"
+							value={ this.state.phone }
+						/>
 					</div>
 				</div>
 				<div className = "bottom-cstmr">

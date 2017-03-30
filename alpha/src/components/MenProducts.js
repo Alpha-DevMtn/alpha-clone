@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Product from './Product';
-import { getMensProducts } from './../services/productsService';
+import { getMensProducts, getMensProductsFiltered } from './../services/productsService';
 import './../styles/MenProducts.css';
 
 
@@ -13,6 +13,15 @@ class MenProducts extends Component {
     this.state = {
       maleProducts: [],
     }
+  }
+
+  filterBy(event) {
+    console.log('event.target.value: ', event.target.value);
+    getMensProductsFiltered(event.target.value).then(clothes => {
+      this.setState({
+        maleProducts: clothes
+      })
+    });
   }
 
   render() {
@@ -35,13 +44,13 @@ class MenProducts extends Component {
         </div>
         <div className='men-the-filters'>
           <h4>FILTER BY: </h4>
-          <select onChange={this.hoodieSelected} value={this.state.value} className='men-selection1'>
-            <option value="">ALL MENS</option>
-            <option value="">Bottoms</option>
-            <option value="">Hats</option>
-            <option value="">Hoodies</option>
-            <option value="">Stringers</option>
-            <option value="">T-Shirt</option>
+          <select className='men-selection1' onChange={this.filterBy.bind(this)}>
+            <option value="All">ALL MENS</option>
+            <option value="Bottoms">Bottoms</option>
+            <option value="Hats">Hats</option>
+            <option value="Hoodies">Hoodies</option>
+            <option value="Stringers">Stringers</option>
+            <option value="T-Shirt">T-Shirt</option>
           </select>
           <h4>SIZES IN STOCK:</h4>
           <select className='men-selection2'>
