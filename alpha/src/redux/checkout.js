@@ -1,5 +1,6 @@
 const CUSTOMER = "checkout/CUSTOMER";
 const SHIPPING = "checkout/SHIPPING";
+const CHECK = "checkout/CHECK";
 
 const initialState = {
   email: ""
@@ -15,6 +16,7 @@ const initialState = {
   , phone: ""
   , shipping: ""
   , saveInfo: ""
+  , totalPrice: ""
 }
 
 export default function reducer(state=initialState, action) {
@@ -44,6 +46,12 @@ export default function reducer(state=initialState, action) {
     , saveInfo: action.shippingInfo.saveInfo
     };
 
+    case CHECK:
+    return {
+      ...state,
+      totalPrice: action.checkoutTotal.totalPrice
+    };
+
     default:
       return state;
   }
@@ -55,4 +63,8 @@ export function gatherInfo( customerInfo ) {
 
 export function ship( shippingInfo ) {
     return { type: SHIPPING, shippingInfo };
+}
+
+export function check( checkoutTotal ) {
+    return { type: CHECK, checkoutTotal };
 }
