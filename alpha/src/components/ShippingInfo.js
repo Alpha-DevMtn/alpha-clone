@@ -14,7 +14,8 @@ class ShippingInfo extends React.Component {
 		super( props );
 
 		this.state = {
-			shippingMethod: "standard"
+			shippingMethod: "standard",
+			ships: 5.99
 		};
 	}
 
@@ -22,6 +23,12 @@ class ShippingInfo extends React.Component {
 	handleChange( type ) {
 		this.setState( { shippingMethod: type } );
 	}
+	fedExShip() {
+		this.setState({
+			ships: 10.99
+		})
+	}
+	
 
   ship( event ) {
     event.preventDefault();
@@ -50,51 +57,29 @@ class ShippingInfo extends React.Component {
 			</div>
 			<div className='body-si'>
 				<div className="left-si">
-					<Link className="pay-links small-text" to="/customer">Customer information <span className="pay-gray">&gt; </span></Link>
-					<Link className="pay-links small-text" to="/shipping">Shipping method <span className="pay-gray">&gt; </span></Link>
-					<Link className="pay-links small-text" to="/payment">Payment method</Link>
-					<p>Shipping: {this.state.shipping}</p>
-					<div className="plain">
-						<div className="entry input-8">
-							<p>Shipping address</p>
-							<p>{this.props.orderInfo.firstName}</p>
-						</div>
-					<h2>Shipping method</h2>
-					<form>
-					<div className="entry input-8">
-              <input
-  							onChange={ this.handleChange.bind( this, "standard" ) }
-  							value="Standard"
-  							type="radio"
-								name="shipping"
-
-  						/>Standard
+					<div className='goto-si'>
+						<Link className="pay-links small-text" to="/customer">Customer information <span className="pay-gray">&gt; </span></Link>
+						<Link className="pay-links small-text" to="/shipping">Shipping method <span className="pay-gray">&gt; </span></Link>
+						<Link className="pay-links small-text" to="/payment">Payment method</Link>
 					</div>
-					<div className="entry input-8">
-              <input
-  							onChange={ this.handleChange.bind( this, "fedex" ) }
-  							value="FedEx"
-  							type="radio"
-								name="shipping"
-  						/>FedEx
+					<div className="si-info">
+						<p>Shipping address</p>
+						<p>{this.props.orderInfo.firstName}</p>		
 					</div>
-					</form>
-</div>
-				<div className = "plain">
+					<div className='sm-head-si'>
+						<p>Shipping method</p>
+					</div>
+				<div className ="sm-si">
+					<button type="radio" onClick={ this.fedExShip.bind( this )}></button>
 					<button type="radio"></button>
-					<p>Save this information for next time</p>
-
-            <button
-							onClick={ this.ship.bind( this ) }
-							type="submit"
-							className="info-button"
-						>
+					<Link to="/shipping"><p>&lt; Return to customer information</p></Link>
+				</div>
+				<button onClick={ this.fedExShip.bind( this )}
+					type="submit" className="info-button-si">
 					Continue to payment method
 					</button>
-					<Link to="/shipping"><p>&lt; Return to customer information</p></Link>
-					</div>
 				</div>
-				<CheckoutProducts />
+				<CheckoutProducts ships={this.state.ships} />
 				</div>
 			</div>
 

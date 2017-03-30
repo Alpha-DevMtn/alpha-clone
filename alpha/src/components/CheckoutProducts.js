@@ -8,6 +8,7 @@ class CheckoutProducts extends React.Component {
 
 		this.state = {
 			fullCart: [],
+      subtotal: 0,
       total: 0
 		};
 	}
@@ -34,6 +35,7 @@ class CheckoutProducts extends React.Component {
       this.setState({
         fullCart: items
       })
+      
       var tot = 0;
       console.log('itemsss', items)
       for (var q = 0; q < items.length; q++) {
@@ -41,8 +43,20 @@ class CheckoutProducts extends React.Component {
       }
 
       this.setState({
-        total: tot.toFixed(2)
+        subtotal: tot.toFixed(2)
       })
+      var everything = 0;
+      if (isNaN(this.props.ships)) {
+        everything = tot;
+        this.setState({
+        total: everything.toFixed(2)
+      })
+      } else {
+        everything = tot + this.props.ships;
+      this.setState({
+        total: everything.toFixed(2)
+      })
+      }
       console.log('tottt', tot)
     })
 
@@ -83,17 +97,16 @@ class CheckoutProducts extends React.Component {
               <div className='prices-chk'>
                 <div className='subtotal-chk'>
                     <p>Subtotal</p>
-                    <p>${this.state.total}</p>
+                    <p>${this.state.subtotal}</p>
                 </div>
                 <div className='shippingcost-chk'>
                   <p>Shipping</p>
-                  <p>{this.props.ships}</p>
+                  <p>${this.props.ships}</p>
                 </div>
-              </div>
-              <div className='totalcost-chk'>
+                <div className='totalcost-chk'>
                 <p>Total</p>
-                <p>
-                </p>
+                <p>${this.state.total}</p>
+              </div>
               </div>
 			      </div>
         )

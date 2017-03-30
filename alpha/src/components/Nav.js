@@ -109,6 +109,14 @@ class Nav extends Component {
     if(localStorageRef) {
 
     }
+
+    var cart = JSON.parse(localStorage.getItem('my-cart'));
+    cart = cart || [];
+    var total = 0;
+    for(var i=0;i<cart.length;i++){
+      total+=cart[i].qty
+    }
+    this.setState({quant: total});
   }
 
 }

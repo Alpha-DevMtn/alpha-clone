@@ -16,7 +16,8 @@ class Customer extends React.Component {
 
 		this.state = {
 			firstName: ""
-			, lastName: ""
+			, lastName: "",
+			ships: "-"
 		};
 	}
 
@@ -150,7 +151,7 @@ class Customer extends React.Component {
 					</button>
 				</div>
 				</div>
-				<CheckoutProducts ships='-' />
+				<CheckoutProducts ships={this.state.ships} />
 				</div>
 			</div>
 		);
