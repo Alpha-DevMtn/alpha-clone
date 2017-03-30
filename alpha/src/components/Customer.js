@@ -15,6 +15,8 @@ class Customer extends React.Component {
 		super( props );
 
 		this.state = {
+
+			ships: "-",
 			email: ""
 			, firstName: ""
 			, lastName: ""
@@ -218,7 +220,7 @@ class Customer extends React.Component {
 					</button>
 				</div>
 				</div>
-				<CheckoutProducts ships='-' />
+				<CheckoutProducts ships={this.state.ships} />
 				</div>
 			</div>
 		);

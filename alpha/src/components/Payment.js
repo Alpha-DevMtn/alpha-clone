@@ -18,7 +18,8 @@ class Payment extends React.Component {
 
 		this.state = {
 			firstName: ""
-			, lastName: ""
+			, lastName: "",
+			ships: JSON.parse(localStorage.getItem(`shipping-cost`))
 			// , countries: ["us","canada","mexico"]
 		};
 	}
@@ -74,18 +75,7 @@ class Payment extends React.Component {
 							/>Credit Card
 						</div>
 						<div className='crd-info-hddn-pmt'>
-							<input onChange={ this.handleChange.bind( this, "shipping" ) } placeholder=" Card number" type="text" value={ this.state.shipping } className='crd-num-pmt'/>
-							<div className='noc-cc-pmt'>
-								<input onChange={ this.handleChange.bind( this, "shipping" ) } placeholder=" Name on card"
-								type="text" value={ this.state.shipping }
-								className='noc-pmt'/>
-								<input onChange={ this.handleChange.bind( this, "saveInfo" ) }
-									placeholder=" MM / YY"
-									type="text" value={ this.state.saveInfo }
-								className='exp-dt-pmt'/>
-								<input onChange={ this.handleChange.bind( this, "saveInfo" ) }
-	placeholder=" CVV" type="text" value={ this.state.saveInfo } className='sec-pmt'/>
-							</div>
+							<Stripe/>
 						</div>
 						<div className='pp-select-pmt'>
 							<input
@@ -143,8 +133,7 @@ class Payment extends React.Component {
 						<Link to="/shipping"><p>&lt; Return to shipping method</p></Link>
 					</div>
 				</div>
-				<Stripe />
-				<CheckoutProducts />
+				<CheckoutProducts ships={this.state.ships}/>
 				</div>
 			</div>
 		);
