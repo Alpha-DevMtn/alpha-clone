@@ -45,12 +45,12 @@ class MenProducts extends Component {
         <div className='men-the-filters'>
           <h4>FILTER BY: </h4>
           <select className='men-selection1' onChange={this.filterBy.bind(this)}>
-            <option value="all">ALL MENS</option>
-            <option value="bottoms">Bottoms</option>
-            <option value="hats">Hats</option>
+            <option value="All">ALL MENS</option>
+            <option value="Bottoms">Bottoms</option>
+            <option value="Hats">Hats</option>
             <option value="Hoodies">Hoodies</option>
-            <option value="stringers">Stringers</option>
-            <option value="t-shirt">T-Shirt</option>
+            <option value="Stringers">Stringers</option>
+            <option value="T-Shirt">T-Shirt</option>
           </select>
           <h4>SIZES IN STOCK:</h4>
           <select className='men-selection2'>

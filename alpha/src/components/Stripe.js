@@ -6,11 +6,8 @@ import '../redux/checkout';
 
 class PaymentForm extends React.Component {
 
-
-
-
   constructor( props ) {
-    super( props );
+    super(props);
 
     this.state = {
       stripeLoading: true,
@@ -21,6 +18,12 @@ class PaymentForm extends React.Component {
       token: null
     };
     mixins: [ ReactScriptLoaderMixin ]
+
+
+    this.onScriptLoaded = this.onScriptLoaded.bind(this);
+    this.onScriptError = this.onScriptError.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+
   }
 
   getScriptURL() {
@@ -53,7 +56,7 @@ class PaymentForm extends React.Component {
         self.setState({ paymentComplete: true, submitDisabled: false, token: response.id });
         // make request to your server here!
         console.log('good response: ', response);
-        console.log("stripe gets props:", this.props)
+        console.log("stripe gets props:", this)
       }
     });
   }
