@@ -28,6 +28,7 @@ module.exports = {
         })
     },
     getMensProducts: function(req, res) {
+      console.log('men fired: ');
         db.product.read_products_men([], function(err, results) {
             if (err) {
                 console.error(err)
@@ -37,15 +38,20 @@ module.exports = {
             }
         })
     },
-    getMensHoodies: function(req, res) {
-      db.product.read_mens_hoodies([req.param.hoodies],
-      function(err, results) {
-        if (err) {
-          console.error(err)
-          res.send(err)
-        }
-        return res.send(results)
-      })
+    getMensProductsFiltered: function(req, res) {
+      console.log('req.params.filter:', req.params.filter);
+        db.product.read_mens_hoodies([req.params.filter],
+        function(err, results) {
+            if (err) {
+
+                console.error(err)
+                console.log('bad hoodie results: ', results);
+                res.send(err)
+              } else {
+                console.log('good hoodie results: ', results);
+                  res.send(results)
+            }
+        })
     },
     getWomensProducts: function(req, res) {
         db.product.read_products_women([], function(err, results) {

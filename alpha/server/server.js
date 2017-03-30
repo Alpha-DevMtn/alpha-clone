@@ -4,7 +4,7 @@ var session = require('express-session');
 
 var config = require('./config');
 
-var stripe = require('stripe')(config.STRIPE_KEYS.secretKey);
+// var stripe = require('stripe')(config.STRIPE_KEYS.secretKey);
 
 var app = module.exports = express();
 
@@ -63,6 +63,7 @@ app.post('/api/payment', function(req, res, next){
 app.get('/api/products', productCtrl.getProducts);
 app.get('/api/products/:product_id', productCtrl.getOneProduct);
 app.get('/api/products/gender/men', productCtrl.getMensProducts);
+app.get('/api/products/gender/mens/:filter', productCtrl.getMensProductsFiltered);
 app.get('/api/products/gender/women', productCtrl.getWomensProducts);
 app.get('/api/products/type/hoodies', productCtrl.getMensHoodies);
 app.post('/api/cart', productCtrl.getCartItems);

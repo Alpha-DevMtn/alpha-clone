@@ -4,6 +4,8 @@ import { ship } from '../redux/checkout';
 import { Link } from 'react-router';
 import { hashHistory } from "react-router";
 import CheckoutProducts from './CheckoutProducts';
+// import StripeComp from './StripeComp';
+import Stripe from './Stripe';
 import AlphaWhite from './../images/alphaWhite.png';
 
 import '../styles/Payment.css';
@@ -141,6 +143,7 @@ class Payment extends React.Component {
 						<Link to="/shipping"><p>&lt; Return to shipping method</p></Link>
 					</div>
 				</div>
+				<Stripe />
 				<CheckoutProducts />
 				</div>
 			</div>

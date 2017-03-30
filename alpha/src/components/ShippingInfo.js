@@ -43,6 +43,7 @@ class ShippingInfo extends React.Component {
 
 
 	render() {
+		console.log('this.props.orderInfo: ', this.props.orderInfo);
 		return (
 			<div className='shippinginfo-main'>
 			<div className="header-si">
@@ -57,7 +58,14 @@ class ShippingInfo extends React.Component {
 					<div className="plain">
 						<div className="entry input-8">
 							<p>Shipping address</p>
-							<p>{this.props.orderInfo.firstName}</p>
+							<p>{this.props.orderInfo.firstName} {this.props.orderInfo.lastName}</p>
+							<p>{this.props.orderInfo.company}</p>
+							<p>{this.props.orderInfo.address} {this.props.orderInfo.apt}</p>
+							<p>{this.props.orderInfo.city}</p>
+							<p>{this.props.orderInfo.country}</p>
+							<p>{this.props.orderInfo.usstate}</p>
+							<p>{this.props.orderInfo.zip}</p>
+							<p>{this.props.orderInfo.phone}</p>
 						</div>
 					<h2>Shipping method</h2>
 					<form>
