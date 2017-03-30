@@ -30,17 +30,27 @@ module.exports = {
     getMensProducts: function(req, res) {
         db.product.read_products_men([], function(err, results) {
             if (err) {
-                console.error(err) 
+                console.error(err)
                 res.send(err)
             } else {
                 res.send(results)
             }
         })
     },
+    getMensHoodies: function(req, res) {
+      db.product.read_mens_hoodies([req.param.hoodies],
+      function(err, results) {
+        if (err) {
+          console.error(err)
+          res.send(err)
+        }
+        return res.send(results)
+      })
+    },
     getWomensProducts: function(req, res) {
         db.product.read_products_women([], function(err, results) {
             if (err) {
-                console.error(err) 
+                console.error(err)
                 res.send(err)
             } else {
                 res.send(results)
@@ -48,7 +58,7 @@ module.exports = {
         })
     },
     getCartItems: function(req, res) {
-        
+
         db.products.find({'product_id': req.body.data},
         function(err, results) {
             if (err) {
