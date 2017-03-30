@@ -3,6 +3,7 @@ import React from 'react';
 import {ReactScriptLoaderMixin} from 'react-script-loader';
 import { connect } from 'react-redux';
 import '../redux/checkout';
+import '../styles/Payment.css';
 
 class PaymentForm extends React.Component {
 
@@ -76,12 +77,17 @@ class PaymentForm extends React.Component {
       return <div>Payment Complete!</div>;
     }
     else {
-      return (<form onSubmit={this.onSubmit} >
+      return (<form onSubmit={this.onSubmit} className='noc-cc-pmt'>
         <span>{ this.state.paymentError }</span><br />
-        <input type='text' data-stripe='number' placeholder='credit card number' /><br />
-        <input type='text' data-stripe='exp-month' placeholder='expiration month' /><br />
-        <input type='text' data-stripe='exp-year' placeholder='expiration year' /><br />
-        <input type='text' data-stripe='cvc' placeholder='cvc' /><br />
+        <div className='cc-upper'>
+           <input type='text' data-stripe='number' placeholder='credit card number' className='crd-num-pmt'/>
+        </div>
+        <div className='cc-lower'>
+          <input type='text' data-stripe='exp-month' placeholder='exp month' className='exp-dt-pmt'/>
+          <input type='text' data-stripe='exp-year' placeholder='exp year' className='exp-dt-pmt'/>
+          <input type='text' data-stripe='cvc' placeholder='cvc' className='sec-pmt'/>
+        </div>
+        
         <input disabled={this.state.submitDisabled} type='submit' value='Purchase' />
       </form>);
     }

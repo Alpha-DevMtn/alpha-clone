@@ -85,6 +85,9 @@
 .noc-cc-pmt {
     width: 500px;
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
 }
 .noc-pmt {
     height: 40px;
@@ -97,14 +100,13 @@
     width: 120px;
     border: solid 1px #ddd;
     border-radius: 5px;
-    margin-left: 10px;
+    margin-right: 10px;
 }
 .sec-pmt {
     height: 40px;
     width: 120px;
     border: solid 1px #ddd;
     border-radius: 5px;
-    margin-left: 10px;
 }
 .ap-select-pmt {
     width: 100%;

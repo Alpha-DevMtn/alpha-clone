@@ -15,7 +15,7 @@ class CheckoutProducts extends React.Component {
 		};
 	}
 
-    componentWillMount() {
+    somethingSpecial() {
 		const localStorageRef = JSON.parse(localStorage.getItem(`my-cart`));
 
         var ids = [];
@@ -59,19 +59,25 @@ class CheckoutProducts extends React.Component {
         total: everything.toFixed(2)
       })
       }
-      this.props.dispatch( check( {
-        totalPrice: this.state.total
-      } ) );
+      // this.props.dispatch( check( {
+      //   totalPrice: this.state.total
+      // } ) );
 
       console.log('tottt', tot)
     })
 
 	}
 
+  componentWillMount() {
+    this.somethingSpecial()
+  }
 
+  componentWillReceiveProps() {
+    this.somethingSpecial()
+   
+  }
 
     render() {
-
 
         let eachOne = [];
     	if (this.state.fullCart.code !== '22P02') {
@@ -107,7 +113,7 @@ class CheckoutProducts extends React.Component {
                 </div>
                 <div className='shippingcost-chk'>
                   <p>Shipping</p>
-                  <p>${this.props.ships}</p>
+                  <p>{this.props.money}{this.props.ships}</p>
                 </div>
                 <div className='totalcost-chk'>
                 <p>Total</p>

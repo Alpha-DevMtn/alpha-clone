@@ -28,6 +28,11 @@ class ShippingInfo extends React.Component {
 			ships: 10.99
 		})
 	}
+	standardShip() {
+		this.setState({
+			ships: 5.99
+		})
+	}
 	
 
   ship( event ) {
@@ -40,7 +45,9 @@ class ShippingInfo extends React.Component {
     console.log('props: ', this.props);
   }
 
-
+setLocalHost() {
+	localStorage.setItem('shipping-cost', JSON.stringify(this.state.ships));
+}
 
 	country = countries.map((item, i) => {
 		return (
@@ -63,52 +70,37 @@ class ShippingInfo extends React.Component {
 						<Link className="pay-links small-text" to="/shipping">Shipping method <span className="pay-gray">&gt; </span></Link>
 						<Link className="pay-links small-text" to="/payment">Payment method</Link>
 
-					{/*<Link className="pay-links small-text" to="/customer">Customer information <span className="pay-gray">&gt; </span></Link>
-					<Link className="pay-links small-text" to="/shipping">Shipping method <span className="pay-gray">&gt; </span></Link>
-					<Link className="pay-links small-text" to="/payment">Payment method</Link>
-					<p>Shipping: {this.state.shipping}</p>
-					<div className="plain">
-						<div className="entry input-8">
-							<p>Shipping address</p>
-							<p>{this.props.orderInfo.firstName} {this.props.orderInfo.lastName}</p>
-							<p>{this.props.orderInfo.company}</p>
-							<p>{this.props.orderInfo.address} {this.props.orderInfo.apt}</p>
-							<p>{this.props.orderInfo.city}</p>
-							<p>{this.props.orderInfo.country}</p>
-							<p>{this.props.orderInfo.usstate}</p>
-							<p>{this.props.orderInfo.zip}</p>
-							<p>{this.props.orderInfo.phone}</p>
-						</div>
-					<h2>Shipping method</h2>
-					<form>
-					<div className="entry input-8">
-              <input
-  							onChange={ this.handleChange.bind( this, "standard" ) }
-  							value="Standard"
-  							type="radio"
-								name="shipping"
-
-  						/>Standard*/}
-
 					</div>
 					<div className="si-info">
-						<p>Shipping address</p>
-						<p>{this.props.orderInfo.firstName}</p>		
+						<h4>Shipping address</h4>
+						<p>{this.props.orderInfo.firstName} {this.props.orderInfo.lastName}</p>
+						<p>{this.props.orderInfo.company}</p>
+						<p>{this.props.orderInfo.address} {this.props.orderInfo.apt}</p>
+						<p>{this.props.orderInfo.city} {this.props.orderInfo.usstate} {this.props.orderInfo.zip}</p>
+						<p>{this.props.orderInfo.country}</p>
+						<p>{this.props.orderInfo.phone}</p>	
 					</div>
 					<div className='sm-head-si'>
 						<p>Shipping method</p>
 					</div>
 				<div className ="sm-si">
-					<button type="radio" onClick={ this.fedExShip.bind( this )}></button>
-					<button type="radio"></button>
-					<Link to="/shipping"><p>&lt; Return to customer information</p></Link>
+						<div className='sm-si1'>
+							<input type="radio" name="shipping" value="" defaultChecked onClick={ this.standardShip.bind( this )}/>Standard - FedEx SmartPost (4-8 Business Days)
+						</div>
+						<div className='sm-si2'>
+							<input type="radio" name="shipping" value="" onClick={ this.fedExShip.bind( this )} />FedEx Home Delivery (1-4 Business Days)
+						</div>
+						
+					
 				</div>
-				<button onClick={ this.fedExShip.bind( this )}
-					type="submit" className="info-button-si">
+				<Link to='/payment'>
+				<button 
+					type="submit" className="info-button-si" onClick={this.setLocalHost.bind(this)}>
 					Continue to payment method
 					</button>
+				</Link>
 				</div>
-				<CheckoutProducts ships={this.state.ships} />
+				<CheckoutProducts ships={this.state.ships} money='$' />
 				</div>
 			</div>
 
