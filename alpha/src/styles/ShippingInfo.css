@@ -17,7 +17,94 @@
 }
 .left-si {
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 .body-si {
     display: flex;
+}
+.goto-si {
+    width: 575px;
+    margin-right: 40px;
+    margin-top: 30px;
+}
+.si-info {
+    width: 575px;
+    border: solid 1px #ddd;
+    margin-right: 40px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    background-color: #eee;
+}
+.si-info p {
+    margin-left: 20px;
+    line-height: 1px;
+    font-size: 12px;
+}
+.si-info h4 {
+    margin-left: 20px;
+}
+.sm-head-si {
+    width: 575px;
+    margin-top: 30px;
+}
+.sm-si {
+    width: 575px;
+    border: solid 1px #ddd;
+    margin-right: 40px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+
+}
+.sm-si1 {
+    width: calc(100% - 10px);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    border-bottom: solid 1px #ddd;
+}
+.sm-si2 {
+    width: 90%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+.info-button-si {
+    margin-right: 40px;
+    margin-top: 30px;
+    height: 50px;
+    width: 250px;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 1300px) {
+    .left-si {
+        align-items: center;
+    }
+    .goto-si {
+        width: 80%;
+        margin-right: 0;
+    }
+    .si-info {
+        width: 80%;
+        margin-right: 0;
+    }
+    .sm-si {
+        width: 80%;
+        margin-right: 0;
+    }
+    .sm-head-si {
+    width: 80%;
+}
 }

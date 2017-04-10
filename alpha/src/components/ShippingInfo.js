@@ -14,7 +14,8 @@ class ShippingInfo extends React.Component {
 		super( props );
 
 		this.state = {
-			shippingMethod: "standard"
+			shippingMethod: "standard",
+			ships: 5.99
 		};
 	}
 
@@ -22,6 +23,17 @@ class ShippingInfo extends React.Component {
 	handleChange( type ) {
 		this.setState( { shippingMethod: type } );
 	}
+	fedExShip() {
+		this.setState({
+			ships: 10.99
+		})
+	}
+	standardShip() {
+		this.setState({
+			ships: 5.99
+		})
+	}
+	
 
   ship( event ) {
     event.preventDefault();
@@ -33,7 +45,9 @@ class ShippingInfo extends React.Component {
     console.log('props: ', this.props);
   }
 
-
+setLocalHost() {
+	localStorage.setItem('shipping-cost', JSON.stringify(this.state.ships));
+}
 
 	country = countries.map((item, i) => {
 		return (
@@ -51,58 +65,42 @@ class ShippingInfo extends React.Component {
 			</div>
 			<div className='body-si'>
 				<div className="left-si">
-					<Link className="pay-links small-text" to="/customer">Customer information <span className="pay-gray">&gt; </span></Link>
-					<Link className="pay-links small-text" to="/shipping">Shipping method <span className="pay-gray">&gt; </span></Link>
-					<Link className="pay-links small-text" to="/payment">Payment method</Link>
-					<p>Shipping: {this.state.shipping}</p>
-					<div className="plain">
-						<div className="entry input-8">
-							<p>Shipping address</p>
-							<p>{this.props.orderInfo.firstName} {this.props.orderInfo.lastName}</p>
-							<p>{this.props.orderInfo.company}</p>
-							<p>{this.props.orderInfo.address} {this.props.orderInfo.apt}</p>
-							<p>{this.props.orderInfo.city}</p>
-							<p>{this.props.orderInfo.country}</p>
-							<p>{this.props.orderInfo.usstate}</p>
-							<p>{this.props.orderInfo.zip}</p>
-							<p>{this.props.orderInfo.phone}</p>
+					<div className='goto-si'>
+						<Link className="pay-links small-text" to="/customer">Customer information <span className="pay-gray">&gt; </span></Link>
+						<Link className="pay-links small-text" to="/shipping">Shipping method <span className="pay-gray">&gt; </span></Link>
+						<Link className="pay-links small-text" to="/payment">Payment method</Link>
+
+					</div>
+					<div className="si-info">
+						<h4>Shipping address</h4>
+						<p>{this.props.orderInfo.firstName} {this.props.orderInfo.lastName}</p>
+						<p>{this.props.orderInfo.company}</p>
+						<p>{this.props.orderInfo.address} {this.props.orderInfo.apt}</p>
+						<p>{this.props.orderInfo.city} {this.props.orderInfo.usstate} {this.props.orderInfo.zip}</p>
+						<p>{this.props.orderInfo.country}</p>
+						<p>{this.props.orderInfo.phone}</p>	
+					</div>
+					<div className='sm-head-si'>
+						<p>Shipping method</p>
+					</div>
+				<div className ="sm-si">
+						<div className='sm-si1'>
+							<input type="radio" name="shipping" value="" defaultChecked onClick={ this.standardShip.bind( this )}/>Standard - FedEx SmartPost (4-8 Business Days)
 						</div>
-					<h2>Shipping method</h2>
-					<form>
-					<div className="entry input-8">
-              <input
-  							onChange={ this.handleChange.bind( this, "standard" ) }
-  							value="Standard"
-  							type="radio"
-								name="shipping"
-
-  						/>Standard
-					</div>
-					<div className="entry input-8">
-              <input
-  							onChange={ this.handleChange.bind( this, "fedex" ) }
-  							value="FedEx"
-  							type="radio"
-								name="shipping"
-  						/>FedEx
-					</div>
-					</form>
-</div>
-				<div className = "plain">
-					<button type="radio"></button>
-					<p>Save this information for next time</p>
-
-            <button
-							onClick={ this.ship.bind( this ) }
-							type="submit"
-							className="info-button"
-						>
+						<div className='sm-si2'>
+							<input type="radio" name="shipping" value="" onClick={ this.fedExShip.bind( this )} />FedEx Home Delivery (1-4 Business Days)
+						</div>
+						
+					
+				</div>
+				<Link to='/payment'>
+				<button 
+					type="submit" className="info-button-si" onClick={this.setLocalHost.bind(this)}>
 					Continue to payment method
 					</button>
-					<Link to="/shipping"><p>&lt; Return to customer information</p></Link>
-					</div>
+				</Link>
 				</div>
-				<CheckoutProducts />
+				<CheckoutProducts ships={this.state.ships} money='$' />
 				</div>
 			</div>
 
