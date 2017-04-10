@@ -47,16 +47,16 @@ class PaymentForm extends React.Component {
     event.preventDefault();
     this.setState({ submitDisabled: true, paymentError: null });
     // send form here
-    window.Stripe.createToken(event.target, function(status, response) {
+    window.Stripe.createToken(event.target, (status, response) => {
       if (response.error) {
-        self.setState({ paymentError: response.error.message, submitDisabled: false });
-        console.log('bad response: ', response);
+        this.setState({ paymentError: response.error.message, submitDisabled: false });
+
       }
       else {
-        self.setState({ paymentComplete: true, submitDisabled: false, token: response.id });
+        this.setState({ paymentComplete: true, submitDisabled: false, token: response.id });
         // make request to your server here!
-        console.log('good response: ', response);
-        console.log("stripe gets props:", this)
+        let theOrder = {...this.props.orderInfo, response}
+        console.log('theOrder: ', theOrder);
       }
     });
   }
@@ -76,7 +76,7 @@ class PaymentForm extends React.Component {
       return <div>Payment Complete!</div>;
     }
     else {
-      return (<form onSubmit={this.onSubmit} >
+      return (<form onSubmit={this.onSubmit.bind(this)} >
         <span>{ this.state.paymentError }</span><br />
         <input type='text' data-stripe='number' placeholder='credit card number' /><br />
         <input type='text' data-stripe='exp-month' placeholder='expiration month' /><br />
